@@ -18,7 +18,7 @@ const Features = () => {
                                             <svg className="absolute left-1 top-1 h-5 w-5 text-indigo-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                                                 <path fillRule="evenodd" d="M5.5 17a4.5 4.5 0 01-1.44-8.765 4.5 4.5 0 018.302-3.046 3.5 3.5 0 014.504 4.272A4 4 0 0115 17H5.5zm3.75-2.75a.75.75 0 001.5 0V9.66l1.95 2.1a.75.75 0 101.1-1.02l-3.25-3.5a.75.75 0 00-1.1 0l-3.25 3.5a.75.75 0 101.1 1.02l1.95-2.1v4.59z" clipRule="evenodd" />
                                             </svg>
-                                            NFC Authentication 
+                                            NFC Authentication
                                         </dt>
                                         <dd className="inline"> Each artwork is equipped with an NFC tag that verifies its authenticity. Simply scan with your device to confirm.</dd>
                                     </div>
@@ -62,7 +62,7 @@ const Features = () => {
                                 </dl>
                             </div>
                         </div>
-                        <Image src="/Assets/_MG_8848.jpg" alt="Product screenshot" className="w-[48rem] max-w-none rounded-xl shadow-xl ring-1 ring-gray-400/10 sm:w-[57rem] md:-ml-4 lg:-ml-0" width="2432" height="1442" />
+                        <Image src="public/Assets/_MG_8848.jpg" alt="Product screenshot" className="w-[48rem] max-w-none rounded-xl shadow-xl ring-1 ring-gray-400/10 sm:w-[57rem] md:-ml-4 lg:-ml-0" width="2432" height="1442" />
                     </div>
                 </div>
             </div>

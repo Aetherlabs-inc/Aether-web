@@ -7,7 +7,7 @@ const Hero = () => {
             <div className="absolute inset-0">
                 <Image
                     className="object-cover w-full h-full grayscale brightness-75 opacity-40"
-                    src="/Assets/_MG_8848.jpg"
+                    src="public/Assets/_MG_8848.jpg"
                     alt=""
                     fill={true}
                 />
