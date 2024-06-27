@@ -1,13 +1,14 @@
 import Image from "next/image";
 import React from "react";
 
+
 const Hero = () => {
     return (
         <div className="relative pt-48 pb-12 bg-black xl:pt-60 sm:pb-16 lg:pb-32 xl:pb-48 2xl:pb-56">
             <div className="absolute inset-0">
                 <Image
                     className="object-cover w-full h-full grayscale brightness-75 opacity-60"
-                    src="/Assets/_MG_8848.jpg"
+                    src="/_MG_8848.jpg"
                     alt=""
                     fill={true}
                 />
