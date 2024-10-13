@@ -131,7 +131,7 @@ const Navbar = (props: Props) => {
                     {/* Right Side - Theme Switcher & Get Started Button for Desktop */}
                     <div className="hidden md:flex items-center gap-4">
                         <ThemeSwitcher />
-                        <Link href="/get-started">
+                        <Link href="/">
                             <Button className="py-2 px-4">Get Started</Button>
                         </Link>
                     </div>
@@ -169,7 +169,7 @@ const Navbar = (props: Props) => {
                         </ul>
                         <div className="fixed bottom-4 right-4 md:hidden">
                             <ThemeSwitcher />
-                            <Link href="/get-started">
+                            <Link href="/">
                                 <Button className="py-2 px-4 mt-2">Get Started</Button>
                             </Link>
                         </div>
