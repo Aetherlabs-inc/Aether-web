@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
-import "./globals.css";
+import "./../styles/globals.css";
 import NavBar from '@/src/NavBar';
 import Provider from "@/components/provider";
+import Footer from "@/src/Footer";
 
 
 export const metadata: Metadata = {
@@ -19,12 +20,14 @@ export default function RootLayout({
       <head>
         <link rel="stylesheet" href="https://use.typekit.net/gtt1ipu.css"></link>
       </head>
-      <body  className="flex flex-col">
-        {/* <Provider> */}
+      <body className="flex flex-col">
+        <Provider>
           <NavBar />
           {children}
-        {/* </Provider> */}
+        </Provider>
+        <Footer />
       </body>
+
     </html>
   );
 }
