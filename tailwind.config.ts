@@ -18,13 +18,13 @@ const config = {
       },
     },
     extend: {
-
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
+
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
@@ -53,6 +53,13 @@ const config = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+
+        // Custom colors
+        "neon-blue": "hsl(236, 85%, 66%)",
+        "raisin-black": "hsl(217, 32%, 8%)",
+        "paynes-gray": "hsl(216, 9%, 43%)",
+        "gunmetal": "hsl(211, 35%, 16%)",
+        "french-gray": "hsl(212, 16%, 82%)",
       },
       borderRadius: {
         lg: "var(--radius)",

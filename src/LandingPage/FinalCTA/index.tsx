@@ -43,7 +43,7 @@ export default function FinalCTA() {
                     <div className="relative mt-16 h-80 lg:mt-8">
                         <Image
                             alt="Platform screenshot"
-                            src="https://tailwindui.com/plus/img/component-images/dark-project-app-screenshot.png"
+                            src="/dashboard1.png"
                             width={1824}
                             height={1080}
                             className="absolute left-0 top-0 w-[57rem] max-w-none rounded-md bg-white/5 ring-1 ring-white/10"

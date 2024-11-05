@@ -88,7 +88,7 @@ const Navbar = (props: Props) => {
                     {/* Logo */}
                     <div>
                         <Link href="/" className="font-bold text-2xl">
-                            Startup
+                            Aether
                         </Link>
                     </div>
 
@@ -130,7 +130,7 @@ const Navbar = (props: Props) => {
 
                     {/* Right Side - Theme Switcher & Get Started Button for Desktop */}
                     <div className="hidden md:flex items-center gap-4">
-                        <ThemeSwitcher />
+                        {/* <ThemeSwitcher /> */}
                         <Link href="/">
                             <Button className="py-2 px-4">Get Started</Button>
                         </Link>

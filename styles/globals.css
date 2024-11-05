@@ -4,67 +4,227 @@
 
 @layer base {
   :root {
-    /* --background: 30 20% 80.4%; */
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Light Mode: Shades of white */
+    --background: 0 0% 98%; /* Near white */
+    --foreground: 0 0% 10%; /* Dark gray text */
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%; /* Pure white */
+    --card-foreground: 0 0% 10%; /* Dark gray */
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%; /* Pure white */
+    --popover-foreground: 0 0% 20%; /* Dark gray */
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 0 0% 20%; /* Dark gray */
+    --primary-foreground: 0 0% 100%; /* White text on dark gray */
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 0 0% 85%; /* Light gray background */
+    --secondary-foreground: 0 0% 20%; /* Dark gray */
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 0 0% 90%; /* Very light gray */
+    --muted-foreground: 0 0% 50%; /* Medium gray */
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 0 0% 90%; /* Very light gray */
+    --accent-foreground: 0 0% 20%; /* Dark gray */
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 84% 58%; /* Soft red */
+    --destructive-foreground: 0 0% 100%; /* White */
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 0 0% 85%; /* Light gray for borders */
+    --input: 0 0% 85%; /* Light gray for input */
+    --ring: 0 0% 50%; /* Medium gray ring */
 
     --radius: 0.5rem;
+
+    /* Custom Colors */
+    --neon-blue: #606af2ff;
+    --raisin-black: #192231ff;
+    --paynes-gray: #646c78ff;
+    --gunmetal: #1b2938ff;
+    --french-gray: #cad1d9ff;
+
+    /* Gradients */
+    --gradient-top: linear-gradient(
+      0deg,
+      #606af2ff,
+      #192231ff,
+      #646c78ff,
+      #1b2938ff,
+      #cad1d9ff
+    );
+    --gradient-right: linear-gradient(
+      90deg,
+      #606af2ff,
+      #192231ff,
+      #646c78ff,
+      #1b2938ff,
+      #cad1d9ff
+    );
+    --gradient-bottom: linear-gradient(
+      180deg,
+      #606af2ff,
+      #192231ff,
+      #646c78ff,
+      #1b2938ff,
+      #cad1d9ff
+    );
+    --gradient-left: linear-gradient(
+      270deg,
+      #606af2ff,
+      #192231ff,
+      #646c78ff,
+      #1b2938ff,
+      #cad1d9ff
+    );
+    --gradient-top-right: linear-gradient(
+      45deg,
+      #606af2ff,
+      #192231ff,
+      #646c78ff,
+      #1b2938ff,
+      #cad1d9ff
+    );
+    --gradient-bottom-right: linear-gradient(
+      135deg,
+      #606af2ff,
+      #192231ff,
+      #646c78ff,
+      #1b2938ff,
+      #cad1d9ff
+    );
+    --gradient-top-left: linear-gradient(
+      225deg,
+      #606af2ff,
+      #192231ff,
+      #646c78ff,
+      #1b2938ff,
+      #cad1d9ff
+    );
+    --gradient-bottom-left: linear-gradient(
+      315deg,
+      #606af2ff,
+      #192231ff,
+      #646c78ff,
+      #1b2938ff,
+      #cad1d9ff
+    );
+    --gradient-radial: radial-gradient(
+      #606af2ff,
+      #192231ff,
+      #646c78ff,
+      #1b2938ff,
+      #cad1d9ff
+    );
   }
+}
 
-  .dark {
-    --background: 9 0% 2%;
-    --foreground: 9 90% 96.4%;
+.dark {
+  /* Dark Mode: Shades of black */
+  --background: 218 32% 1% ;/* Near black */
+  --foreground: 0 0% 90%; /* Light gray text */
 
-    --card: 240 5% 7%;
-    --card-foreground: 210 40% 98%;
+  --card: 0 0% 2%; /* Dark gray card */
+  --card-foreground: 0 0% 90%; /* Light gray text */
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+  --popover: 0 0% 12%; /* Dark gray popover */
+  --popover-foreground: 0 0% 90%; /* Light gray text */
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+  --primary: 0 0% 90%; /* Light gray */
+  --primary-foreground: 0 0% 10%; /* Near black text */
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+  --secondary: 0 0% 20%; /* Medium dark gray */
+  --secondary-foreground: 0 0% 90%; /* Light gray */
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+  --muted: 0 0% 20%; /* Medium dark gray */
+  --muted-foreground: 0 0% 70%; /* Softer gray */
 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+  --accent: 0 0% 20%; /* Medium dark gray */
+  --accent-foreground: 0 0% 90%; /* Light gray */
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
+  --destructive: 0 62% 30%; /* Soft red for destructive elements */
+  --destructive-foreground: 0 0% 90%; /* Light gray */
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-  }
+  --border: 0 0% 20%; /* Medium dark gray border */
+  --input: 0 0% 20%; /* Medium dark gray input */
+  --ring: 0 0% 50%; /* Softer gray ring */
+
+  --neon-blue: hsl(236, 85%, 66%);
+  --raisin-black: hsl(218, 32%, 15%)
+  --paynes-gray: #646c78;
+  --gunmetal: hsl(211, 35%, 16%);
+  --french-gray: hsl(212, 16%, 82%);
+
+  /* Gradients */
+  --gradient-top: linear-gradient(
+    0deg,
+    #606af2ff,
+    #192231ff,
+    #646c78ff,
+    #1b2938ff,
+    #cad1d9ff
+  );
+  --gradient-right: linear-gradient(
+    90deg,
+    #606af2ff,
+    #192231ff,
+    #646c78ff,
+    #1b2938ff,
+    #cad1d9ff
+  );
+  --gradient-bottom: linear-gradient(
+    180deg,
+    #606af2ff,
+    #192231ff,
+    #646c78ff,
+    #1b2938ff,
+    #cad1d9ff
+  );
+  --gradient-left: linear-gradient(
+    270deg,
+    #606af2ff,
+    #192231ff,
+    #646c78ff,
+    #1b2938ff,
+    #cad1d9ff
+  );
+  --gradient-top-right: linear-gradient(
+    45deg,
+    #606af2ff,
+    #192231ff,
+    #646c78ff,
+    #1b2938ff,
+    #cad1d9ff
+  );
+  --gradient-bottom-right: linear-gradient(
+    135deg,
+    #606af2ff,
+    #192231ff,
+    #646c78ff,
+    #1b2938ff,
+    #cad1d9ff
+  );
+  --gradient-top-left: linear-gradient(
+    225deg,
+    #606af2ff,
+    #192231ff,
+    #646c78ff,
+    #1b2938ff,
+    #cad1d9ff
+  );
+  --gradient-bottom-left: linear-gradient(
+    315deg,
+    #606af2ff,
+    #192231ff,
+    #646c78ff,
+    #1b2938ff,
+    #cad1d9ff
+  );
+  --gradient-radial: radial-gradient(
+    #606af2ff,
+    #192231ff,
+    #646c78ff,
+    #1b2938ff,
+    #cad1d9ff
+  );
 }
 
 @layer base {
@@ -86,5 +246,4 @@
 .embla__slide {
   flex: 0 0 100%;
   min-width: 0;
-  /* @apply mx-[200px]; */
 }
