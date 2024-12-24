@@ -5,6 +5,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { Menu, Minimize } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { ThemeSwitcher } from "@/components/themeSwitcher";
+import path from "path";
 
 type Props = {};
 
@@ -69,6 +70,10 @@ const Navbar = (props: Props) => {
         {
             name: "Blog",
             path: "/",
+        },
+        {
+            name: "demo",
+            path: "/demo",
         },
         {
             name: "More",
