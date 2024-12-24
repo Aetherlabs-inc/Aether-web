@@ -68,10 +68,6 @@ const Navbar = (props: Props) => {
             path: "/",
         },
         {
-            name: "Blog",
-            path: "/",
-        },
-        {
             name: "demo",
             path: "/demo",
         },
