@@ -13,7 +13,7 @@ const AboutConcept = () => {
                         In today’s art market, authenticity is everything. With counterfeit artworks on the rise, it has never been more critical for artists, galleries, and collectors to secure the authenticity of their creations and investments. The old ways of certifying art are outdated—easily forged, cumbersome to manage, and untraceable. But we believe there’s a better way.
                     </p>
                     <p className="mb-4">
-                        <strong>[Startup Name]</strong> combines the power of NFC technology and blockchain security to create a foolproof solution for authenticating artwork. Every piece of art registered on our platform is linked to a unique, tamper-proof digital certificate stored securely on the blockchain, ensuring a permanent, transparent, and traceable record of authenticity.
+                        <strong>Aether</strong> combines the power of NFC technology and blockchain security to create a foolproof solution for authenticating artwork. Every piece of art registered on our platform is linked to a unique, tamper-proof digital certificate stored securely on the blockchain, ensuring a permanent, transparent, and traceable record of authenticity.
                     </p>
                     <p>
                         Our mission is to empower artists and safeguard the value of their work, ensuring that every creation, whether a painting, sculpture, or digital piece, is forever verifiable and truly authentic.

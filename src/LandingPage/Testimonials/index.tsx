@@ -5,7 +5,7 @@ const testimonials = [
         name: "Jane Doe",
         role: "Contemporary Artist",
         content:
-            "Since using [Startup Name], I’ve been able to secure my pieces and offer collectors the assurance they need. The process is seamless, and the blockchain technology gives me peace of mind.",
+            "Since using Aether, I’ve been able to secure my pieces and offer collectors the assurance they need. The process is seamless, and the blockchain technology gives me peace of mind.",
         image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
     },
     {
@@ -19,7 +19,7 @@ const testimonials = [
         name: "Sarah Lee",
         role: "Gallery Owner",
         content:
-            "[Startup Name] provides the security we need when hosting exhibitions. Knowing that every piece is verified with blockchain-backed certificates gives our buyers confidence.",
+            "Aether provides the security we need when hosting exhibitions. Knowing that every piece is verified with blockchain-backed certificates gives our buyers confidence.",
         image: "https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&auto=format&fit=facearea&w=256&h=256&q=80",
     },
 ];
@@ -36,7 +36,7 @@ export default function Testimonials() {
                         Trusted by Artists, Collectors, and Galleries Worldwide
                     </p>
                     <p className="mt-6 text-lg leading-8 text-gray-600 dark:text-gray-400">
-                        Hear how [Startup Name] has revolutionized art authentication for those who need it most.
+                        Hear how Aether has revolutionized art authentication for those who need it most.
                     </p>
                 </div>
                 <div className="mt-16 grid grid-cols-1 gap-y-16 lg:grid-cols-3 lg:gap-x-8">
