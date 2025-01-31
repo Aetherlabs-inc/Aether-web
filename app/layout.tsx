@@ -1,3 +1,4 @@
+import React from "react";
 import type { Metadata } from "next";
 import "./../styles/globals.css";
 import Provider from "@/components/provider";
@@ -10,6 +11,7 @@ export const metadata: Metadata = {
 };
 
 Amplify.configure(outputs);
+
 export default function RootLayout({
     children,
 }: Readonly<{
