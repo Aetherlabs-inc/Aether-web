@@ -10,6 +10,7 @@ import { useState } from "react";
 import { BsEyeSlashFill, BsFillEyeFill } from "react-icons/bs";
 import { useRouter } from "next/navigation";
 import LoadingScreen from "@/components/LoadingScreen";
+import { Checkbox } from '@/components/ui/checkbox';
 
 const LoginPage = () => {
     const router = useRouter();
@@ -72,12 +73,13 @@ const LoginPage = () => {
     }
 
     return (
-        <div className="flex flex-col items-center justify-center w-full h-full rounded-full">
-            <div>
-                <h1 className="text-4xl font-bold mb-4">Hello Bandu!</h1>
-            </div>
+        <div className="flex flex-col items-center justify-center w-full h-screen rounded-full">
+
             <Card className="p-6 md:w-96 flex flex-col justify-center items-center">
-                <h1 className="text-2xl font-bold mb-4">Login</h1>
+                <div className='flex flex-col items-center mb-8'>
+                    <h1 className="text-4xl font-bold mb-4">Welcome back!</h1>
+                    <p className="text-lg">Login to your account</p>
+                </div>
 
                 {/* Display error message */}
                 {error && <p className="text-red-500 mb-4">{error}</p>}
@@ -104,6 +106,21 @@ const LoginPage = () => {
                     >
                         {isVisible ? <BsFillEyeFill /> : <BsEyeSlashFill />}
                     </button>
+                </div>
+                <div className='flex items-end justify-between w-full'>
+                    <div className="flex items-center space-x-2">
+                        <Checkbox id="terms" />
+                        <label
+                            htmlFor="terms"
+                            className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                        >
+                            Accept terms and conditions
+                        </label>
+                    </div>
+
+                    <Link href="/auth/forgot-password" className="text-blue-500 underline mt-2">
+                        Forgot password?
+                    </Link>
                 </div>
 
                 <Button

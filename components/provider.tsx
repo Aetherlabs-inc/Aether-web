@@ -8,7 +8,7 @@ Amplify.configure(outputs, { ssr: true });
 
 export default function Provider({ children }: { children: React.ReactNode }) {
     return (
-        <ThemeProvider attribute="class" defaultTheme='light' enableSystem disableTransitionOnChange>
+        <ThemeProvider attribute="class" defaultTheme='light' disableTransitionOnChange>
             {/* <AuthProvider> */}
             {children}
             {/* </AuthProvider> */}
