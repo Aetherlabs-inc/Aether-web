@@ -7,7 +7,6 @@ import { signIn } from 'aws-amplify/auth';
 import { Label } from "@/components/ui/label";
 import { BsEyeSlashFill, BsFillEyeFill } from "react-icons/bs";
 import { useRouter } from "next/navigation";
-import LoadingScreen from "@/components/LoadingScreen";
 import Image from "next/image";
 
 export function LoginForm({
@@ -24,9 +23,10 @@ export function LoginForm({
 
     const toggleVisibility = () => setIsVisible(!isVisible);
 
-    const handleLogin = async () => {
-        setError(""); // Reset error before login attempt
-        setLoading(true); // Set loading state to true
+    const handleLogin = async (event: React.FormEvent) => {
+        event.preventDefault(); // Prevent form submission reload
+        setError("");
+        setLoading(true);
 
         try {
             const { isSignedIn, nextStep } = await signIn({ username: email, password });
@@ -37,16 +37,12 @@ export function LoginForm({
                 console.log('next step', nextStep);
             }
 
-            if (nextStep) {
-                console.log('next step is required:', nextStep);
-                if (nextStep.signInStep === 'DONE') {
-                    router.push('/dashboard');
-                    return;
-                }
+            if (nextStep?.signInStep === 'DONE') {
+                router.push('/dashboard');
+                return;
             }
         } catch (error: unknown) {
             console.log('error signing in', error);
-
             if (error instanceof Error && 'code' in error) {
                 const authError = error as { code: string };
                 switch (authError.code) {
@@ -64,18 +60,13 @@ export function LoginForm({
                 setError("An unexpected error occurred");
             }
         } finally {
-            setLoading(false); // Set loading state to false once the process is complete
+            setLoading(false);
         }
     };
 
-    if (loading) {
-        return (
-            <LoadingScreen />
-        );
-    }
 
     return (
-        <form className={cn("flex flex-col gap-6", className)} {...props}>
+        <form className={cn("flex flex-col gap-6", className)} {...props} onSubmit={handleLogin}>
             <div className="flex flex-col items-center gap-2 text-center">
                 <h1 className="text-2xl font-bold">Login to your account</h1>
                 <p className="text-balance text-sm text-muted-foreground">
