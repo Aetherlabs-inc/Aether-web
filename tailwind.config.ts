@@ -55,7 +55,7 @@ const config = {
   			'neon-blue': 'hsl(236, 85%, 66%)',
   			'raisin-black': 'hsl(217, 32%, 8%)',
   			'paynes-gray': 'hsl(216, 9%, 43%)',
-  			'gunmetal': 'hsl(211, 35%, 16%)',
+  			gunmetal: 'hsl(211, 35%, 16%)',
   			'french-gray': 'hsl(212, 16%, 82%)',
   			chart: {
   				'1': 'hsl(var(--chart-1))',
@@ -63,6 +63,16 @@ const config = {
   				'3': 'hsl(var(--chart-3))',
   				'4': 'hsl(var(--chart-4))',
   				'5': 'hsl(var(--chart-5))'
+  			},
+  			sidebar: {
+  				DEFAULT: 'hsl(var(--sidebar-background))',
+  				foreground: 'hsl(var(--sidebar-foreground))',
+  				primary: 'hsl(var(--sidebar-primary))',
+  				'primary-foreground': 'hsl(var(--sidebar-primary-foreground))',
+  				accent: 'hsl(var(--sidebar-accent))',
+  				'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
+  				border: 'hsl(var(--sidebar-border))',
+  				ring: 'hsl(var(--sidebar-ring))'
   			}
   		},
   		borderRadius: {
