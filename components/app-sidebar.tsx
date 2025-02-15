@@ -1,6 +1,5 @@
 import * as React from "react";
 
-import { SearchForm } from "@/components/search-form";
 import {
   Sidebar,
   SidebarContent,
@@ -55,7 +54,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
     <Sidebar {...props}>
       <SidebarHeader>
-        <SearchForm />
+        
       </SidebarHeader>
       <SidebarContent>
         {navGroups.map((group) => (
