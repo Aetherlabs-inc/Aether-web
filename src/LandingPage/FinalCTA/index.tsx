@@ -1,5 +1,5 @@
 import Image from "next/image";
-
+import React from "react";
 export default function FinalCTA() {
     return (
         <div className="">
@@ -43,7 +43,7 @@ export default function FinalCTA() {
                     <div className="relative mt-16 h-80 lg:mt-8">
                         <Image
                             alt="Platform screenshot"
-                            src="/dashboard1.png"
+                            src="/dashboard.png"
                             width={1824}
                             height={1080}
                             className="absolute left-0 top-0 w-[57rem] max-w-none rounded-md bg-white/5 ring-1 ring-white/10"
