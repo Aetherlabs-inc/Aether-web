@@ -13,6 +13,9 @@ import {
     ArcElement
 } from 'chart.js';
 import { Line, Doughnut } from 'react-chartjs-2';
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 
 ChartJS.register(
     CategoryScale,
@@ -51,8 +54,8 @@ const Dashboard = () => {
             {
                 label: 'Certificates Issued',
                 data: [120, 150, 180, 140, 160, 156],
-                borderColor: 'rgb(126, 34, 206)',
-                backgroundColor: 'rgba(126, 34, 206, 0.5)',
+                borderColor: 'rgb(0, 0, 0)',
+                backgroundColor: 'rgba(0, 0, 0, 0.1)',
                 tension: 0.4
             }
         ]
@@ -65,11 +68,11 @@ const Dashboard = () => {
             {
                 data: [45, 20, 15, 10, 10],
                 backgroundColor: [
-                    'rgb(126, 34, 206)', // Dark Purple
-                    'rgb(107, 33, 168)', // Darker Purple
-                    'rgb(88, 28, 135)', // Deep Purple
-                    'rgb(126, 34, 206)', // Dark Purple
-                    'rgb(107, 33, 168)'  // Darker Purple
+                    'rgb(0, 0, 0)',
+                    'rgb(40, 40, 40)',
+                    'rgb(80, 80, 80)',
+                    'rgb(120, 120, 120)',
+                    'rgb(160, 160, 160)'
                 ]
             }
         ]
@@ -91,19 +94,20 @@ const Dashboard = () => {
     };
 
     return (
-        <div className="min-h-screen p-6">
+        <div className="min-h-screen p-6 bg-background">
             <div className="mx-auto">
                 <div className="flex justify-between items-center mb-8">
-                    <h1 className="text-3xl font-bold text-gray-900 dark:text-white">
+                    <h1 className="text-3xl font-bold text-foreground">
                         Dashboard Overview
                     </h1>
                     <div className="flex items-center space-x-4">
-                        <button className="p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-full">
-                            <Bell className="w-5 h-5 text-gray-600 dark:text-gray-400" />
-                        </button>
-                        <button className="p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-full">
-                            <Search className="w-5 h-5 text-gray-600 dark:text-gray-400" />
-                        </button>
+                        <Button variant="ghost" size="icon">
+                            <Bell className="w-5 h-5" />
+                        </Button>
+                        <div className="relative">
+                            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+                            <Input placeholder="Search..." className="pl-9 w-[200px]" />
+                        </div>
                     </div>
                 </div>
 
@@ -114,179 +118,197 @@ const Dashboard = () => {
                     animate="show"
                 >
                     {/* Total Artworks Card */}
-                    <motion.div
-                        variants={item}
-                        className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 hover:shadow-xl transition-shadow duration-300"
-                    >
-                        <div className="flex items-center justify-between">
-                            <div>
-                                <p className="text-sm font-medium text-gray-600 dark:text-gray-400">
-                                    Total Artworks
-                                </p>
-                                <p className="text-2xl font-bold text-gray-900 dark:text-white mt-2">
-                                    {stats.totalArtworks}
-                                </p>
-                            </div>
-                            <div className="bg-purple-700 rounded-full p-3">
-                                <Image className="w-6 h-6 text-white" />
-                            </div>
-                        </div>
+                    <motion.div variants={item}>
+                        <Card>
+                            <CardContent className="pt-6">
+                                <div className="flex items-center justify-between">
+                                    <div>
+                                        <p className="text-sm font-medium text-muted-foreground">
+                                            Total Artworks
+                                        </p>
+                                        <p className="text-2xl font-bold text-foreground mt-2">
+                                            {stats.totalArtworks}
+                                        </p>
+                                    </div>
+                                    <div className="bg-black rounded-full p-3">
+                                        <Image className="w-6 h-6 text-white" />
+                                    </div>
+                                </div>
+                            </CardContent>
+                        </Card>
                     </motion.div>
 
                     {/* Issued Certificates Card */}
-                    <motion.div
-                        variants={item}
-                        className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 hover:shadow-xl transition-shadow duration-300"
-                    >
-                        <div className="flex items-center justify-between">
-                            <div>
-                                <p className="text-sm font-medium text-gray-600 dark:text-gray-400">
-                                    Issued Certificates
-                                </p>
-                                <p className="text-2xl font-bold text-gray-900 dark:text-white mt-2">
-                                    {stats.issuedCertificates}
-                                </p>
-                            </div>
-                            <div className="bg-purple-800 rounded-full p-3">
-                                <FileCheck className="w-6 h-6 text-white" />
-                            </div>
-                        </div>
+                    <motion.div variants={item}>
+                        <Card>
+                            <CardContent className="pt-6">
+                                <div className="flex items-center justify-between">
+                                    <div>
+                                        <p className="text-sm font-medium text-muted-foreground">
+                                            Issued Certificates
+                                        </p>
+                                        <p className="text-2xl font-bold text-foreground mt-2">
+                                            {stats.issuedCertificates}
+                                        </p>
+                                    </div>
+                                    <div className="bg-black rounded-full p-3">
+                                        <FileCheck className="w-6 h-6 text-white" />
+                                    </div>
+                                </div>
+                            </CardContent>
+                        </Card>
                     </motion.div>
 
                     {/* In Process Certificates Card */}
-                    <motion.div
-                        variants={item}
-                        className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 hover:shadow-xl transition-shadow duration-300"
-                    >
-                        <div className="flex items-center justify-between">
-                            <div>
-                                <p className="text-sm font-medium text-gray-600 dark:text-gray-400">
-                                    Certificates in Process
-                                </p>
-                                <p className="text-2xl font-bold text-gray-900 dark:text-white mt-2">
-                                    {stats.inProcessCertificates}
-                                </p>
-                            </div>
-                            <div className="bg-purple-900 rounded-full p-3">
-                                <Clock className="w-6 h-6 text-white" />
-                            </div>
-                        </div>
+                    <motion.div variants={item}>
+                        <Card>
+                            <CardContent className="pt-6">
+                                <div className="flex items-center justify-between">
+                                    <div>
+                                        <p className="text-sm font-medium text-muted-foreground">
+                                            Certificates in Process
+                                        </p>
+                                        <p className="text-2xl font-bold text-foreground mt-2">
+                                            {stats.inProcessCertificates}
+                                        </p>
+                                    </div>
+                                    <div className="bg-black rounded-full p-3">
+                                        <Clock className="w-6 h-6 text-white" />
+                                    </div>
+                                </div>
+                            </CardContent>
+                        </Card>
                     </motion.div>
                 </motion.div>
 
                 {/* Quick Actions and Recent Activity Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     {/* Quick Actions */}
-                    <motion.div
-                        variants={item}
-                        className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6"
-                    >
-                        <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-4 flex items-center">
-                            <Plus className="w-5 h-5 mr-2" />
-                            Quick Actions
-                        </h2>
-                        <div className="grid grid-cols-2 gap-4">
-                            <button className="flex items-center justify-center p-4 bg-purple-700 hover:bg-purple-800 text-white rounded-lg transition-colors">
-                                <Image className="w-5 h-5 mr-2" />
-                                Add Artwork
-                            </button>
-                            <button className="flex items-center justify-center p-4 bg-purple-800 hover:bg-purple-900 text-white rounded-lg transition-colors">
-                                <FileCheck className="w-5 h-5 mr-2" />
-                                Issue Certificate
-                            </button>
-                            <button className="flex items-center justify-center p-4 bg-purple-700 hover:bg-purple-800 text-white rounded-lg transition-colors">
-                                <Users className="w-5 h-5 mr-2" />
-                                Add Artist
-                            </button>
-                            <button className="flex items-center justify-center p-4 bg-purple-800 hover:bg-purple-900 text-white rounded-lg transition-colors">
-                                <FileText className="w-5 h-5 mr-2" />
-                                View Reports
-                            </button>
-                        </div>
+                    <motion.div variants={item}>
+                        <Card>
+                            <CardHeader>
+                                <CardTitle className="flex items-center">
+                                    <Plus className="w-5 h-5 mr-2" />
+                                    Quick Actions
+                                </CardTitle>
+                            </CardHeader>
+                            <CardContent>
+                                <div className="grid grid-cols-2 gap-4">
+                                    <Button variant="outline" className="w-full justify-start">
+                                        <Image className="w-5 h-5 mr-2" />
+                                        Add Artwork
+                                    </Button>
+                                    <Button variant="outline" className="w-full justify-start">
+                                        <FileCheck className="w-5 h-5 mr-2" />
+                                        Issue Certificate
+                                    </Button>
+                                    <Button variant="outline" className="w-full justify-start">
+                                        <Users className="w-5 h-5 mr-2" />
+                                        Add Artist
+                                    </Button>
+                                    <Button variant="outline" className="w-full justify-start">
+                                        <FileText className="w-5 h-5 mr-2" />
+                                        View Reports
+                                    </Button>
+                                </div>
+                            </CardContent>
+                        </Card>
                     </motion.div>
 
                     {/* Recent Activity */}
-                    <motion.div
-                        variants={item}
-                        className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6"
-                    >
-                        <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-4 flex items-center">
-                            <Activity className="w-5 h-5 mr-2" />
-                            Recent Activity
-                        </h2>
-                        <div className="space-y-4">
-                            {recentActivity.map((activity, index) => (
-                                <div key={index} className="flex items-center justify-between p-3 bg-gray-50 dark:bg-gray-700 rounded-lg">
-                                    <div className="flex items-center">
-                                        <div className={`w-2 h-2 rounded-full mr-3 ${activity.type === 'artwork' ? 'bg-purple-700' :
-                                            activity.type === 'certificate' ? 'bg-purple-800' :
-                                                activity.type === 'verification' ? 'bg-purple-700' :
-                                                    'bg-purple-800'
-                                            }`} />
-                                        <div>
-                                            <p className="text-sm font-medium text-gray-900 dark:text-white">
-                                                {activity.title}
-                                            </p>
-                                            <p className="text-xs text-gray-500 dark:text-gray-400">
-                                                {activity.action}
-                                            </p>
+                    <motion.div variants={item}>
+                        <Card>
+                            <CardHeader>
+                                <CardTitle className="flex items-center">
+                                    <Activity className="w-5 h-5 mr-2" />
+                                    Recent Activity
+                                </CardTitle>
+                            </CardHeader>
+                            <CardContent>
+                                <div className="space-y-4">
+                                    {recentActivity.map((activity, index) => (
+                                        <div key={index} className="flex items-center justify-between p-3 rounded-lg bg-muted/50">
+                                            <div className="flex items-center">
+                                                <div className="w-2 h-2 rounded-full mr-3 bg-black" />
+                                                <div>
+                                                    <p className="text-sm font-medium text-foreground">
+                                                        {activity.title}
+                                                    </p>
+                                                    <p className="text-xs text-muted-foreground">
+                                                        {activity.action}
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <span className="text-xs text-muted-foreground">
+                                                {activity.time}
+                                            </span>
                                         </div>
-                                    </div>
-                                    <span className="text-xs text-gray-500 dark:text-gray-400">
-                                        {activity.time}
-                                    </span>
+                                    ))}
                                 </div>
-                            ))}
-                        </div>
+                            </CardContent>
+                        </Card>
                     </motion.div>
                 </div>
             </div>
 
             {/* Analytics Section */}
-            <motion.div
-                variants={item}
-                className="mt-6 bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6"
-            >
-                <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-4 flex items-center">
-                    <BarChart3 className="w-5 h-5 mr-2" />
-                    Analytics Overview
-                </h2>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
-                    <div className="p-4 bg-gray-50 dark:bg-gray-700 rounded-lg">
-                        <h3 className="text-sm font-medium text-gray-600 dark:text-gray-400">Monthly Certificates</h3>
-                        <p className="text-2xl font-bold text-gray-900 dark:text-white mt-2">156</p>
-                        <p className="text-xs text-purple-700 mt-1">+12% from last month</p>
-                    </div>
-                    <div className="p-4 bg-gray-50 dark:bg-gray-700 rounded-lg">
-                        <h3 className="text-sm font-medium text-gray-600 dark:text-gray-400">Verification Rate</h3>
-                        <p className="text-2xl font-bold text-gray-900 dark:text-white mt-2">98.5%</p>
-                        <p className="text-xs text-purple-800 mt-1">+2.3% from last month</p>
-                    </div>
-                    <div className="p-4 bg-gray-50 dark:bg-gray-700 rounded-lg">
-                        <h3 className="text-sm font-medium text-gray-600 dark:text-gray-400">Active Users</h3>
-                        <p className="text-2xl font-bold text-gray-900 dark:text-white mt-2">1,234</p>
-                        <p className="text-xs text-purple-700 mt-1">+8% from last month</p>
-                    </div>
-                </div>
-
-                {/* Charts Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    {/* Certificate Issuance Trend */}
-                    <div className="p-4 bg-gray-50 dark:bg-gray-700 rounded-lg">
-                        <h3 className="text-sm font-medium text-gray-600 dark:text-gray-400 mb-4">Certificate Issuance Trend</h3>
-                        <div className="h-[300px]">
-                            <Line data={certificateTrendData} options={{ maintainAspectRatio: false }} />
+            <motion.div variants={item} className="mt-6">
+                <Card>
+                    <CardHeader>
+                        <CardTitle className="flex items-center">
+                            <BarChart3 className="w-5 h-5 mr-2" />
+                            Analytics Overview
+                        </CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+                            <Card>
+                                <CardContent className="pt-6">
+                                    <h3 className="text-sm font-medium text-muted-foreground">Monthly Certificates</h3>
+                                    <p className="text-2xl font-bold text-foreground mt-2">156</p>
+                                    <p className="text-xs text-muted-foreground mt-1">+12% from last month</p>
+                                </CardContent>
+                            </Card>
+                            <Card>
+                                <CardContent className="pt-6">
+                                    <h3 className="text-sm font-medium text-muted-foreground">Verification Rate</h3>
+                                    <p className="text-2xl font-bold text-foreground mt-2">98.5%</p>
+                                    <p className="text-xs text-muted-foreground mt-1">+2.3% from last month</p>
+                                </CardContent>
+                            </Card>
+                            <Card>
+                                <CardContent className="pt-6">
+                                    <h3 className="text-sm font-medium text-muted-foreground">Active Users</h3>
+                                    <p className="text-2xl font-bold text-foreground mt-2">1,234</p>
+                                    <p className="text-xs text-muted-foreground mt-1">+8% from last month</p>
+                                </CardContent>
+                            </Card>
                         </div>
-                    </div>
 
-                    {/* Artwork Categories Distribution */}
-                    <div className="p-4 bg-gray-50 dark:bg-gray-700 rounded-lg">
-                        <h3 className="text-sm font-medium text-gray-600 dark:text-gray-400 mb-4">Artwork Categories</h3>
-                        <div className="h-[300px]">
-                            <Doughnut data={categoryData} options={{ maintainAspectRatio: false }} />
+                        {/* Charts Grid */}
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            {/* Certificate Issuance Trend */}
+                            <Card>
+                                <CardContent className="pt-6">
+                                    <h3 className="text-sm font-medium text-muted-foreground mb-4">Certificate Issuance Trend</h3>
+                                    <div className="h-[300px]">
+                                        <Line data={certificateTrendData} options={{ maintainAspectRatio: false }} />
+                                    </div>
+                                </CardContent>
+                            </Card>
+
+                            {/* Artwork Categories Distribution */}
+                            <Card>
+                                <CardContent className="pt-6">
+                                    <h3 className="text-sm font-medium text-muted-foreground mb-4">Artwork Categories</h3>
+                                    <div className="h-[300px]">
+                                        <Doughnut data={categoryData} options={{ maintainAspectRatio: false }} />
+                                    </div>
+                                </CardContent>
+                            </Card>
                         </div>
-                    </div>
-                </div>
+                    </CardContent>
+                </Card>
             </motion.div>
         </div>
     );
