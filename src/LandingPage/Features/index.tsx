@@ -1,5 +1,6 @@
 import { LockClosedIcon } from "@radix-ui/react-icons";
 import { ArrowUp01Icon, CloudUploadIcon, FingerprintIcon } from "lucide-react";
+import React from "react";
 
 const features = [
     {

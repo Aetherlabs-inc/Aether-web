@@ -1,10 +1,14 @@
+'use client';
+
 import Image from 'next/image';
 import { CloudUpload, ServerCogIcon } from 'lucide-react';
 import { LockClosedIcon } from '@radix-ui/react-icons';
+import React from 'react';
+import { motion } from 'framer-motion';
 
 export default function HowItWorks() {
     return (
-        <div className="relative isolate overflow-hidden bg-card px-6 py-24 sm:py-32 lg:overflow-visible lg:px-0">
+        <div className="relative isolate overflow-hidden bg-card px-4 sm:px-6 py-16 sm:py-24 lg:overflow-visible lg:px-0">
             <div className="absolute inset-0 -z-10 overflow-hidden">
                 <svg
                     aria-hidden="true"
@@ -35,65 +39,110 @@ export default function HowItWorks() {
             <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 lg:mx-0 lg:max-w-none lg:grid-cols-2 lg:items-start lg:gap-y-10">
                 {/* Main Text Section */}
                 <div className="lg:col-span-2 lg:col-start-1 lg:row-start-1 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8">
-                    <div className="lg:pr-4">
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5 }}
+                        viewport={{ once: true, margin: "-100px" }}
+                        className="lg:pr-4"
+                    >
                         <div className="lg:max-w-lg">
-                            <p className="text-base font-semibold leading-7">Art Authentication</p>
-                            <h1 className="mt-2 text-3xl font-bold tracking-tight sm:text-4xl">How It Works</h1>
-                            <p className="mt-6 text-xl leading-8">
+                            <p className="text-base font-semibold leading-7 text-indigo-600 dark:text-indigo-400">Art Authentication</p>
+                            <h1 className="mt-2 text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">How It Works</h1>
+                            <p className="mt-6 text-lg sm:text-xl leading-8 text-gray-600 dark:text-gray-300">
                                 From registering your artwork to verifying authenticity, our platform simplifies the process.
                             </p>
                         </div>
-                    </div>
+                    </motion.div>
                 </div>
 
                 {/* Image Section */}
-                <div className="-ml-12 -mt-12 p-12 lg:sticky lg:top-4 lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:overflow-hidden">
-                    <Image
-                        alt="App Screenshot"
-                        src="/dashboard1.png"
-                        className="w-[1900px] max-w-none rounded-xl bg-gray-900 shadow-xl ring-1 ring-gray-400/10 sm:w-[57rem]"
-                        width={2432}
-                        height={1442}
-                    />
-
-                </div>
+                <motion.div
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.5 }}
+                    viewport={{ once: true, margin: "-100px" }}
+                    className="-ml-4 sm:-ml-12 -mt-12 p-4 sm:p-12 lg:sticky lg:top-4 lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:overflow-hidden"
+                >
+                    <div className="relative rounded-xl overflow-hidden shadow-2xl ring-1 ring-gray-400/10">
+                        <Image
+                            alt="App Screenshot"
+                            src="/dashboard.png"
+                            className="w-full h-auto rounded-xl bg-gray-900"
+                            width={2432}
+                            height={1442}
+                            priority
+                        />
+                    </div>
+                </motion.div>
 
                 {/* Detailed Process Section */}
                 <div className="lg:col-span-2 lg:col-start-1 lg:row-start-2 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8">
-                    <div className="lg:pr-4">
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5, delay: 0.2 }}
+                        viewport={{ once: true, margin: "-100px" }}
+                        className="lg:pr-4"
+                    >
                         <div className="max-w-xl text-base leading-7 lg:max-w-lg">
-                            <p>
+                            <p className="text-gray-600 dark:text-gray-300">
                                 Our platform makes it easy for artists, collectors, and galleries to secure the authenticity of artworks.
                             </p>
                             <ul role="list" className="mt-8 space-y-8">
-                                <li className="flex gap-x-3">
-                                    <CloudUpload aria-hidden="true" className="mt-1 h-5 w-5 flex-none text-indigo-600" />
-                                    <span>
-                                        <strong className="font-semibold">Step 1: Register Your Artwork</strong> — Upload your artwork to our platform. Each piece will be assigned a digital certificate of authenticity stored securely on the blockchain.
+                                <motion.li
+                                    initial={{ opacity: 0, x: -20 }}
+                                    whileInView={{ opacity: 1, x: 0 }}
+                                    transition={{ duration: 0.5, delay: 0.3 }}
+                                    viewport={{ once: true, margin: "-100px" }}
+                                    className="flex gap-x-3 group"
+                                >
+                                    <CloudUpload className="mt-1 h-5 w-5 flex-none text-indigo-600 group-hover:scale-110 transition-transform" />
+                                    <span className="text-gray-600 dark:text-gray-300">
+                                        <strong className="font-semibold text-gray-900 dark:text-white">Step 1: Register Your Artwork</strong> — Upload your artwork to our platform. Each piece will be assigned a digital certificate of authenticity stored securely on the blockchain.
                                     </span>
-                                </li>
-                                <li className="flex gap-x-3">
-                                    <LockClosedIcon aria-hidden="true" className="mt-1 h-5 w-5 flex-none text-indigo-600" />
-                                    <span>
-                                        <strong className="font-semibold">Step 2: Attach NFC Tag</strong> — Attach an NFC tag to the physical piece. This tag is cryptographically linked to the digital certificate, allowing easy verification.
+                                </motion.li>
+                                <motion.li
+                                    initial={{ opacity: 0, x: -20 }}
+                                    whileInView={{ opacity: 1, x: 0 }}
+                                    transition={{ duration: 0.5, delay: 0.4 }}
+                                    viewport={{ once: true, margin: "-100px" }}
+                                    className="flex gap-x-3 group"
+                                >
+                                    <LockClosedIcon className="mt-1 h-5 w-5 flex-none text-indigo-600 group-hover:scale-110 transition-transform" />
+                                    <span className="text-gray-600 dark:text-gray-300">
+                                        <strong className="font-semibold text-gray-900 dark:text-white">Step 2: Attach NFC Tag</strong> — Attach an NFC tag to the physical piece. This tag is cryptographically linked to the digital certificate, allowing easy verification.
                                     </span>
-                                </li>
-                                <li className="flex gap-x-3">
-                                    <ServerCogIcon aria-hidden="true" className="mt-1 h-5 w-5 flex-none text-indigo-600" />
-                                    <span>
-                                        <strong className="font-semibold">Step 3: Verify and Share</strong> — Buyers, collectors, and galleries can easily verify authenticity by scanning the NFC tag, confirming ownership and provenance.
+                                </motion.li>
+                                <motion.li
+                                    initial={{ opacity: 0, x: -20 }}
+                                    whileInView={{ opacity: 1, x: 0 }}
+                                    transition={{ duration: 0.5, delay: 0.5 }}
+                                    viewport={{ once: true, margin: "-100px" }}
+                                    className="flex gap-x-3 group"
+                                >
+                                    <ServerCogIcon className="mt-1 h-5 w-5 flex-none text-indigo-600 group-hover:scale-110 transition-transform" />
+                                    <span className="text-gray-600 dark:text-gray-300">
+                                        <strong className="font-semibold text-gray-900 dark:text-white">Step 3: Verify and Share</strong> — Buyers, collectors, and galleries can easily verify authenticity by scanning the NFC tag, confirming ownership and provenance.
                                     </span>
-                                </li>
+                                </motion.li>
                             </ul>
-                            <p className="mt-8">
+                            <p className="mt-8 text-gray-600 dark:text-gray-300">
                                 With our streamlined platform, artists and collectors can manage artwork authenticity and provenance in a secure and efficient way.
                             </p>
-                            <h2 className="mt-16 text-2xl font-bold tracking-tight">Why Choose Our Platform?</h2>
-                            <p className="mt-6">
-                                Our platform offers a transparent and secure system, ensuring all transactions are recorded immutably on the blockchain and can be easily verified.
-                            </p>
+                            <motion.div
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.5, delay: 0.6 }}
+                                viewport={{ once: true, margin: "-100px" }}
+                            >
+                                <h2 className="mt-16 text-2xl font-bold tracking-tight">Why Choose Our Platform?</h2>
+                                <p className="mt-6 text-gray-600 dark:text-gray-300">
+                                    Our platform offers a transparent and secure system, ensuring all transactions are recorded immutably on the blockchain and can be easily verified.
+                                </p>
+                            </motion.div>
                         </div>
-                    </div>
+                    </motion.div>
                 </div>
             </div>
         </div>
