@@ -1,5 +1,6 @@
 import React from 'react';
 import { Search, Filter, Plus, Image as ImageIcon, Shield, AlertCircle, Clock } from 'lucide-react';
+import { Button } from '@/components/ui/button';
 
 const Artworks: React.FC = () => {
     // Dummy data for demonstration
@@ -71,10 +72,10 @@ const Artworks: React.FC = () => {
                         className="w-full pl-10 pr-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
                     />
                 </div>
-                <button className="flex items-center gap-2 px-4 py-2 border rounded-lg hover:bg-accent">
+                <Button className="flex items-center gap-2 px-4 py-2 border rounded-lg hover:bg-accent">
                     <Filter className="w-5 h-5" />
                     Filter
-                </button>
+                </Button>
             </div>
 
             {/* Artworks Grid */}
