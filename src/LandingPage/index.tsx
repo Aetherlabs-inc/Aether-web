@@ -4,11 +4,12 @@ import Features from './Features'
 import AboutConcept from './AboutConcept'
 import HowItWorks from './HowItWorks'
 import Testimonials from './Testimonials'
-import FinalCTA from './FinalCTA'
+// import FinalCTA from './FinalCTA'
+import Pricing from './Pricing'
 
-type Props = {}
 
-const LandingPage = (props: Props) => {
+
+const LandingPage = () => {
   return (
     <div className='flex flex-col'>
       <Hero />
@@ -16,7 +17,8 @@ const LandingPage = (props: Props) => {
       <HowItWorks />
       <Features />
       <Testimonials />
-      <FinalCTA />
+      <Pricing />
+      {/* <FinalCTA /> */}
 
     </div>
   )
