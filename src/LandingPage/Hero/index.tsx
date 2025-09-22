@@ -1,69 +1,102 @@
-import Image from "next/image";
-import Link from "next/link";
-import React from "react";
-import EnhancedBinaryBackground from '@/components/EnchancedBinaryBackground';
+'use client'
+import React, { useState, useEffect } from 'react';
+import { Button } from '@/components/ui/button';
+import { Loader, ShieldCheck, ScanLine, Sparkles } from 'lucide-react';
+import Dashboard from './demo/dashboardPreview';
 
-const Hero = () => {
+/**
+ * Aether – Hero Section (tailored)
+ * - Messaging focuses on NFC authentication + provenance + portfolio tools
+ * - Clear CTAs: Scan demo tag / Book a demo
+ * - Polished microcopy + accessible labels
+ */
+const HeroSection = () => {
+    const [isVisible, setIsVisible] = useState(false);
+
+    useEffect(() => {
+        const timer = setTimeout(() => setIsVisible(true), 300);
+        return () => clearTimeout(timer);
+    }, []);
+
     return (
-        <section className="bg-card py-16">
-            <div className="container mx-auto text-center flex flex-col items-center">
-                <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
-                    <div className="flex flex-col justify-center w-full">
-                        {/* Title */}
-                        <h1 className="text-4xl font-extrabold leading-tight sm:text-5xl">
-                            Authenticating Art<br></br> One Tap at a Time
-                        </h1>
+        <section className="relative w-full py-12 md:py-20 px-6 md:px-12 flex flex-col items-center justify-center overflow-hidden bg-background">
+            {/* Cosmic particle effect (background dots) */}
+            <div className="absolute inset-0 cosmic-grid opacity-30" aria-hidden />
 
-                        {/* Subtitle */}
-                        <p className="mt-4 text-lg text-gray-400 max-w-lg mx-auto">
-                            Discover a revolutionary way to verify art authenticity with a simple NFC tap. Empowering artists and collectors with secure, accessible certification technology.
-                        </p>
+            {/* Gradient glow effect */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full">
+                <div className="w-full h-full opacity-10 bg-primary blur-[120px]" aria-hidden />
+            </div>
+
+            {/* Headline & pitch */}
+            <div
+                className={
+                    `relative z-10 max-w-4xl text-center space-y-6 transition-all duration-700 transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+                    }`
+                }
+            >
+                {/* Status pill */}
+                <div className="flex justify-center">
+                    <span className="inline-flex items-center gap-2 px-3 py-1 text-xs font-medium rounded-full bg-muted text-primary">
+                        <span className="flex h-2 w-2 rounded-full bg-primary" />
+                        New: NFC-backed Certificates
+                        <Loader className="h-3 w-3 animate-spin text-primary" aria-hidden />
+                    </span>
+                </div>
+
+                <h1 className="text-4xl md:text-6xl lg:text-7xl font-medium tracking-tighter text-balance text-foreground">
+                    Art Authentication & Management for
+                    <span className="block">Artists, Galleries & Collectors</span>
+                </h1>
+
+                <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto text-balance">
+                    Aether links physical artworks to <span className="font-medium text-foreground">secure NFC tags</span> and
+                    <span className="font-medium text-foreground"> verifiable certificates</span>. Create portfolios, track provenance,
+                    and share trust with buyers — all in one modern workspace.
+                </p>
+
+                {/* Key value props */}
+                <div className="flex flex-wrap items-center justify-center gap-3 text-sm text-muted-foreground">
+                    <div className="inline-flex items-center gap-2 rounded-full bg-muted px-3 py-1">
+                        <ShieldCheck className="h-4 w-4" /> Tamper‑evident provenance
                     </div>
-
-                    {/* App Store / Google Play Buttons */}
-                    {/* <div className="mt-2 flex space-x-4">
-                    <Link href="">
-                        <Image
-                            src="/appstore-logo.svg"
-                            alt="App Store"
-                            width={150} // Adjust width as needed
-                            height={40} // Adjust height as needed
-                            className="inline"
-                        /></Link>
-
-                    <Link href="">
-                        <Image
-                            src="/googleplay-logo.svg"
-                            alt="App Store"
-                            width={150} // Adjust width as needed
-                            height={40} // Adjust height as needed
-                            className="inline"
-                        /></Link>
-                </div> */}
-
-                    {/* Mockup Image */}
-                    <div className="mt-5">
-                        <Image
-                            src="/aetherhero.jpg" // Replace with your image source
-                            alt="App Screenshot"
-                            width={400}
-                            height={800}
-                            className="mx-auto w-full h-full"
-                        />
+                    <div className="inline-flex items-center gap-2 rounded-full bg-muted px-3 py-1">
+                        <ScanLine className="h-4 w-4" /> Tap‑to‑verify with NFC
+                    </div>
+                    <div className="inline-flex items-center gap-2 rounded-full bg-muted px-3 py-1">
+                        <Sparkles className="h-4 w-4" /> Beautiful artist portfolios
                     </div>
                 </div>
-                {/* Rating and Reviews
-                <div className="mt-6 flex items-center justify-center space-x-2">
-                    <div className="flex items-center">
-                        <Image src="https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&auto=format&fit=facearea&w=256&h=256&q=80" alt="User avatars" width={80} height={24} />
-                        <span className="ml-2 text-yellow-400">4.9</span>
-                    </div>
-                    <p className="text-gray-400">Rated Highly by <strong>10k+</strong> Artists and Collectors</p>
-                </div> */}
+
+                {/* CTAs */}
+                <div className="flex flex-col sm:flex-row gap-4 justify-center pt-6 items-center">
+                    <Button
+                        className="bg-primary text-primary-foreground hover:bg-primary/80 text-base h-12 px-8 transition-all duration-200 min-h-[48px]"
+                        aria-label="Scan a demo NFC tag"
+                    >
+                        Scan a demo tag
+                    </Button>
+                    <Button
+                        variant="outline"
+                        className="border-border text-foreground hover:bg-accent hover:text-accent-foreground text-base h-12 px-8 transition-all duration-200 min-h-[48px]"
+                        aria-label="Book a product demo"
+                    >
+                        Book a demo
+                    </Button>
+                </div>
+
+                <div className="pt-2 text-xs text-muted-foreground">
+                    No credit card required · Free 14‑day trial
+                </div>
             </div>
-            {/* <EnhancedBinaryBackground /> */}
+
+            <div className='flex flex-col justify-center items-center p-3 w-full h-full max-w-7xl mx-auto'>
+                <Dashboard />
+            </div>
+
+
         </section>
     );
 };
 
-export default Hero;
+export default HeroSection;

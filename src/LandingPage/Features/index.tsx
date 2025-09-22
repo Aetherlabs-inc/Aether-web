@@ -1,6 +1,7 @@
 import { LockClosedIcon } from "@radix-ui/react-icons";
 import { ArrowUp01Icon, CloudUploadIcon, FingerprintIcon } from "lucide-react";
 import React from "react";
+import { Card, CardContent } from "@/components/ui/card";
 
 const features = [
     {
@@ -31,37 +32,29 @@ const features = [
 
 export default function Features() {
     return (
-        <div className="py-24 sm:py-32">
-            <div className="mx-auto max-w-7xl px-6 lg:px-8">
-                <div className="mx-auto max-w-2xl lg:text-center">
-                    <h2 className="text-base font-semibold leading-7 text-indigo-600">
-                        Trusted Art Authentication
-                    </h2>
-                    <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl">
-                        Key Features of Our Platform
-                    </p>
-                    <p className="mt-6 text-lg leading-8 text-gray-600 dark:text-gray-400">
+        <section className="w-full py-20 px-6 md:px-12">
+            <div className="max-w-7xl mx-auto space-y-12">
+                <div className="text-center space-y-3 max-w-3xl mx-auto">
+                    <h2 className="text-3xl md:text-4xl font-medium tracking-tighter">Everything Your Art World Needs</h2>
+                    <p className="text-muted-foreground text-lg">
                         Our platform offers an easy and secure solution for artists, galleries, and collectors to authenticate and manage artwork.
                     </p>
                 </div>
-                <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-4xl">
-                    <dl className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-10 lg:max-w-none lg:grid-cols-2 lg:gap-y-16">
-                        {features.map((feature) => (
-                            <div key={feature.name} className="relative pl-16">
-                                <dt className="text-base font-semibold leading-7 text-gray-900 dark:text-white">
-                                    <div className="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-lg bg-indigo-600">
-                                        <feature.icon aria-hidden="true" className="h-6 w-6 text-white" />
-                                    </div>
-                                    {feature.name}
-                                </dt>
-                                <dd className="mt-2 text-base leading-7 text-gray-600 dark:text-gray-400">
-                                    {feature.description}
-                                </dd>
-                            </div>
-                        ))}
-                    </dl>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    {features.map((feature) => (
+                        <Card key={feature.name} className="border border-border bg-card hover:border-border/60 transition-all duration-300">
+                            <CardContent className="p-6 space-y-4">
+                                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
+                                    <feature.icon className="h-6 w-6 text-primary" />
+                                </div>
+                                <h3 className="text-lg font-medium text-foreground">{feature.name}</h3>
+                                <p className="text-sm text-muted-foreground leading-relaxed">{feature.description}</p>
+                            </CardContent>
+                        </Card>
+                    ))}
                 </div>
             </div>
-        </div>
+        </section>
     );
 }

@@ -1,65 +1,67 @@
-import Image from "next/image";
+import React from 'react';
 
-const testimonials = [
-    {
-        name: "Jane Doe",
-        role: "Contemporary Artist",
-        content:
-            "Since using Aether, I’ve been able to secure my pieces and offer collectors the assurance they need. The process is seamless, and the blockchain technology gives me peace of mind.",
-        image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
-    },
-    {
-        name: "John Smith",
-        role: "Art Collector",
-        content:
-            "Verifying artwork authenticity has never been easier. I love the ability to instantly scan an NFC tag and confirm the artist's credentials. It’s a game-changer for art collectors.",
-        image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
-    },
-    {
-        name: "Sarah Lee",
-        role: "Gallery Owner",
-        content:
-            "Aether provides the security we need when hosting exhibitions. Knowing that every piece is verified with blockchain-backed certificates gives our buyers confidence.",
-        image: "https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&auto=format&fit=facearea&w=256&h=256&q=80",
-    },
-];
+const Testimonials = () => {
+    const testimonials = [
+        {
+            quote: "Our payment processing efficiency increased by 40% and transaction failures dropped to near zero. The automation features are game-changing.",
+            author: "Sarah Johnson",
+            position: "CFO at TechCorp",
+            avatar: "bg-cosmic-light/30"
+        },
+        {
+            quote: "The real-time analytics and fraud detection capabilities have saved us millions. We can spot issues before they become problems.",
+            author: "Michael Chen",
+            position: "Head of Risk at FinanceFlow",
+            avatar: "bg-cosmic-light/20"
+        },
+        {
+            quote: "Compliance used to be a nightmare. Now our regulatory reporting is automated and we're always audit-ready.",
+            author: "Leila Rodriguez",
+            position: "Operations Director at GlobalPay",
+            avatar: "bg-cosmic-light/40"
+        }
+    ];
 
-export default function Testimonials() {
     return (
-        <section className="bg-card py-24 sm:py-32">
-            <div className="mx-auto max-w-7xl px-6 lg:px-8">
-                <div className="mx-auto max-w-2xl lg:text-center">
-                    <h2 className="text-base font-semibold leading-7 text-indigo-600">
-                        What Our Users Say
+        <section className="w-full py-20 px-6 md:px-12 bg-card relative overflow-hidden">
+            {/* Background grid */}
+            <div className="absolute inset-0 cosmic-grid opacity-20"></div>
+
+            <div className="max-w-7xl mx-auto space-y-16 relative z-10">
+                <div className="text-center space-y-4 max-w-3xl mx-auto">
+                    <h2 className="text-3xl md:text-4xl font-medium tracking-tighter text-foreground">
+                        Trusted by finance teams worldwide
                     </h2>
-                    <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl">
-                        Trusted by Artists, Collectors, and Galleries Worldwide
-                    </p>
-                    <p className="mt-6 text-lg leading-8 text-gray-600 dark:text-gray-400">
-                        Hear how Aether has revolutionized art authentication for those who need it most.
+                    <p className="text-muted-foreground text-lg">
+                        See how our platform transforms financial operations for businesses
                     </p>
                 </div>
-                <div className="mt-16 grid grid-cols-1 gap-y-16 lg:grid-cols-3 lg:gap-x-8">
-                    {testimonials.map((testimonial) => (
-                        <div key={testimonial.name} className="text-center">
-                            <Image
-                                className="mx-auto h-24 w-24 rounded-full object-cover shadow-lg"
-                                src={testimonial.image}
-                                alt={testimonial.name}
-                                width={96}
-                                height={96}
-                            />
-                            <h3 className="mt-6 text-lg font-semibold text-gray-900 dark:text-white">
-                                {testimonial.name}
-                            </h3>
-                            <p className="text-indigo-600">{testimonial.role}</p>
-                            <p className="mt-4 text-base leading-7 text-gray-600 dark:text-gray-400">
-                                {testimonial.content}
-                            </p>
+
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    {testimonials.map((testimonial, index) => (
+                        <div
+                            key={index}
+                            className="p-6 rounded-xl border border-border bg-background/80 backdrop-blur-sm hover:border-border/60 transition-all duration-300"
+                        >
+                            <div className="mb-6">
+                                {[...Array(5)].map((_, i) => (
+                                    <span key={i} className="text-primary inline-block mr-1">★</span>
+                                ))}
+                            </div>
+                            <p className="text-lg mb-8 text-foreground/90 italic">&quot;{testimonial.quote}&quot;</p>
+                            <div className="flex items-center gap-4">
+                                <div className={`h-12 w-12 rounded-full ${testimonial.avatar} bg-muted`}></div>
+                                <div>
+                                    <h4 className="font-medium text-foreground">{testimonial.author}</h4>
+                                    <p className="text-sm text-muted-foreground">{testimonial.position}</p>
+                                </div>
+                            </div>
                         </div>
                     ))}
                 </div>
             </div>
         </section>
     );
-}
+};
+
+export default Testimonials;
