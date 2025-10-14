@@ -1,5 +1,7 @@
+'use client';
+
 import React from "react";
-import { motion } from "motion/react";
+import { motion } from "framer-motion";
 import { Image, FileCheck, Clock, Plus, BarChart3, Activity, Users, FileText, Search, Bell } from "lucide-react";
 import {
     Chart as ChartJS,

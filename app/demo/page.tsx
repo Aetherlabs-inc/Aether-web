@@ -1,3 +1,5 @@
+'use client';
+
 import Dashboard from "@/src/dashboard/index";
 import React from "react";
 
