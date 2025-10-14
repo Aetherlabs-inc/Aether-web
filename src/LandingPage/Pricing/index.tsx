@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Button } from '@/components/ui/button';
 
@@ -5,57 +6,58 @@ const Pricing = () => {
     const plans = [
         {
             name: "Artist",
-            price: "Free",
-            period: "",
-            description: "Everything a solo creator needs to start authenticating and showcasing work.",
+            price: "$29",
+            originalPrice: "$49",
+            period: "per month",
+            discount: "50% off for founding members",
+            description: "Perfect for solo creators",
             features: [
-                "Up to 25 artworks",
-                "10 authenticity certificates / month",
-                "Tap-to-verify (NFC) via Aether viewer",
-                "1 portfolio page + basic branding",
-                "Provenance timeline (basic)",
-                "CSV import (up to 100 rows)",
-                "Community support"
+                "Up to 50 artworks/year",
+                "50 NFC tags included",
+                "Blockchain certificates",
+                "Online portfolio",
+                "Email support"
             ],
-            buttonText: "Start for free",
+            buttonText: "Reserve Your Spot",
             buttonVariant: "outline",
             popular: false
         },
         {
             name: "Studio",
-            price: "$49",
+            price: "$99",
+            originalPrice: "$149",
             period: "per month",
-            description: "For growing studios and small galleries managing larger catalogs.",
+            discount: "33% off for founding members",
+            description: "For growing studios",
             features: [
-                "Up to 500 artworks",
-                "100 authenticity certificates / month",
-                "Unlimited portfolios & collections",
-                "Exhibitions & shareable certificate viewer",
-                "Bulk import & media CDN",
-                "Analytics & activity log",
-                "3 team seats + role permissions",
-                "Priority email support"
+                "Up to 200 artworks/year",
+                "200 NFC tags included",
+                "Everything in Artist",
+                "Bulk upload tools",
+                "Priority support",
+                "Advanced analytics"
             ],
-            buttonText: "Start 14-day trial",
+            buttonText: "Reserve Your Spot",
             buttonVariant: "default",
             popular: true
         },
         {
             name: "Gallery",
-            price: "Custom",
-            period: "",
-            description: "For professional galleries, museums, and marketplaces.",
+            price: "$299",
+            originalPrice: "$399",
+            period: "per month",
+            discount: "25% off for founding members",
+            description: "For professional galleries",
             features: [
-                "Unlimited artworks & high-volume certificates",
-                "Advanced provenance & ownership transfer",
-                "White-label viewer + custom branding",
-                "API access & webhooks",
-                "SSO/SAML, audit logs, IP allowlisting",
-                "Regional hosting & data residency",
-                "Onboarding & dedicated account manager",
-                "24/7 premium support & SLAs"
+                "Unlimited artworks",
+                "500 NFC tags included",
+                "White-label certificates",
+                "API access",
+                "Dedicated support",
+                "Custom branding",
+                "Exhibition management"
             ],
-            buttonText: "Contact Sales",
+            buttonText: "Reserve Your Spot",
             buttonVariant: "outline",
             popular: false
         }
@@ -66,10 +68,10 @@ const Pricing = () => {
             <div className="max-w-7xl mx-auto space-y-16">
                 <div className="text-center space-y-4 max-w-3xl mx-auto">
                     <h2 className="text-3xl md:text-4xl font-medium tracking-tighter text-foreground">
-                        Simple, transparent pricing for Aether
+                        Early Bird Pricing
                     </h2>
                     <p className="text-muted-foreground text-lg">
-                        From solo artists to full galleries—pick a plan that matches your catalog and certificate volume.
+                        Lock in founding member rates before we launch. Limited to first 500 signups.
                     </p>
                 </div>
 
@@ -77,7 +79,9 @@ const Pricing = () => {
                     {plans.map((plan, index) => (
                         <div
                             key={index}
-                            className={`p-6 rounded-xl border flex flex-col h-full ${plan.popular ? "border-primary/50 cosmic-glow bg-card" : "border-border cosmic-gradient bg-card"
+                            className={`p-6 rounded-xl border flex flex-col h-full ${plan.popular
+                                ? "border-primary/50 cosmic-glow bg-card"
+                                : "border-border cosmic-gradient bg-card"
                                 } transition-all duration-300 relative`}
                         >
                             {plan.popular && (
@@ -90,8 +94,12 @@ const Pricing = () => {
                                 <h3 className="text-2xl font-medium tracking-tighter mb-1 text-foreground">{plan.name}</h3>
 
                                 <div className="mb-4">
-                                    <div className="text-3xl font-bold tracking-tighter text-foreground">{plan.price}</div>
+                                    <div className="flex items-baseline gap-2">
+                                        {plan.originalPrice && <span className="text-xl line-through text-muted-foreground">{plan.originalPrice}</span>}
+                                        <span className="text-3xl font-bold tracking-tighter text-foreground">{plan.price}</span>
+                                    </div>
                                     {plan.period && <div className="text-sm text-muted-foreground">{plan.period}</div>}
+                                    {plan.discount && <div className="text-xs text-primary mt-1">{plan.discount}</div>}
                                 </div>
 
                                 <p className="text-muted-foreground mb-6">{plan.description}</p>
@@ -126,16 +134,18 @@ const Pricing = () => {
                     ))}
                 </div>
 
-                {/* Footnotes / Extras */}
                 <div className="text-center space-y-4">
-                    <h3 className="text-2xl font-medium tracking-tighter text-foreground">
-                        Start authenticating your art with confidence.
+                    <p className="text-sm text-muted-foreground">
+                        Prices increase after launch. Lock in founding member rates forever.
+                    </p>
+                    <h3 className="text-2xl font-medium tracking-tighter text-foreground pt-4">
+                        Ready to Protect Your Art?
                     </h3>
                     <p className="text-muted-foreground max-w-2xl mx-auto">
-                        Need extra NFC tags or higher certificate volumes? We offer add-on packs and custom workflows for fairs, auctions, and archives.
+                        Join the waitlist and be among the first to authenticate your artwork with blockchain technology.
                     </p>
                     <div className="text-muted-foreground">
-                        Questions? <a href="#" className="text-primary hover:underline">Talk to our team</a>
+                        Have questions? <a href="mailto:hello@aether.com" className="text-primary hover:underline">Email us at hello@aether.com</a>
                     </div>
                 </div>
             </div>

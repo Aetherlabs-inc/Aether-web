@@ -1,30 +1,39 @@
-'use client';
-
 import React from 'react';
 import { Card, CardContent } from '@/components/ui/card';
-import { CheckCircle, CloudUpload, ServerCogIcon } from 'lucide-react';
-import { LockClosedIcon } from '@radix-ui/react-icons';
+import { CheckCircle, Upload, CreditCard, Shield } from 'lucide-react';
 
-export default function HowItWorks() {
+const HowItWorks = () => {
     const steps = [
         {
-            icon: <CloudUpload className="h-8 w-8 text-primary" />,
-            title: 'Step 1: Register Your Artwork',
-            description:
-                'Upload your artwork to our platform. Each piece will be assigned a digital certificate of authenticity stored securely on the blockchain.',
+            icon: <Upload className="h-8 w-8 text-primary" />,
+            title: "Step 1: Register Your Artwork",
+            description: "Upload high-resolution images, artwork details, and artist information. Our system generates a unique digital certificate stored permanently on the blockchain.",
+            bullets: [
+                "Accepts JPG, PNG, TIFF formats",
+                "Certificate created in under 2 minutes",
+                "Immutable blockchain record"
+            ]
         },
         {
-            icon: <LockClosedIcon className="h-8 w-8 text-primary" />,
-            title: 'Step 2: Attach NFC Tag',
-            description:
-                'Attach an NFC tag to the physical piece. This tag is cryptographically linked to the digital certificate, allowing easy verification.',
+            icon: <CreditCard className="h-8 w-8 text-primary" />,
+            title: "Step 2: Attach NFC Tag",
+            description: "Receive tamper-proof NFC tags that cryptographically link to your digital certificate. Simply attach to the back of your artwork or frame.",
+            bullets: [
+                "Military-grade encryption",
+                "Water & weather resistant",
+                "Works through glass and frames"
+            ]
         },
         {
-            icon: <ServerCogIcon className="h-8 w-8 text-primary" />,
-            title: 'Step 3: Verify and Share',
-            description:
-                'Buyers, collectors, and galleries can easily verify authenticity by scanning the NFC tag, confirming ownership and provenance.',
-        },
+            icon: <Shield className="h-8 w-8 text-primary" />,
+            title: "Step 3: Instant Verification",
+            description: "Anyone with a smartphone can tap the NFC tag to instantly verify authenticity, view provenance history, and see ownership records.",
+            bullets: [
+                "Works on any NFC-enabled phone",
+                "No app download required",
+                "Complete ownership history"
+            ]
+        }
     ];
 
     return (
@@ -34,9 +43,11 @@ export default function HowItWorks() {
 
             <div className="max-w-7xl mx-auto space-y-16 relative z-10">
                 <div className="text-center space-y-4 max-w-3xl mx-auto">
-                    <h2 className="text-3xl md:text-4xl font-medium tracking-tighter text-foreground">How It Works</h2>
+                    <h2 className="text-3xl md:text-4xl font-medium tracking-tighter text-foreground">
+                        Three Simple Steps to Secure Your Art
+                    </h2>
                     <p className="text-muted-foreground text-lg">
-                        From registering your artwork to verifying authenticity, our platform simplifies the process
+                        From creation to verification, we&apos;ve made art authentication effortless
                     </p>
                 </div>
 
@@ -44,11 +55,21 @@ export default function HowItWorks() {
                     {steps.map((step, index) => (
                         <Card key={index} className="border border-border bg-card hover:border-border/60 transition-all duration-300">
                             <CardContent className="p-8 text-center space-y-6">
-                                <div className="mx-auto w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center">
-                                    {step.icon}
+                                <div className="mx-auto w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center text-3xl font-bold text-primary">
+                                    {index + 1}
                                 </div>
                                 <h3 className="text-xl font-medium text-foreground">{step.title}</h3>
                                 <p className="text-muted-foreground leading-relaxed">{step.description}</p>
+                                {step.bullets && (
+                                    <div className="space-y-2 text-left">
+                                        {step.bullets.map((bullet, i) => (
+                                            <div key={i} className="flex items-center gap-2 text-sm text-muted-foreground">
+                                                <CheckCircle className="h-4 w-4 text-primary flex-shrink-0" />
+                                                <span>{bullet}</span>
+                                            </div>
+                                        ))}
+                                    </div>
+                                )}
                             </CardContent>
                         </Card>
                     ))}
@@ -56,14 +77,16 @@ export default function HowItWorks() {
 
                 <div className="text-center">
                     <p className="text-muted-foreground mb-6">
-                        With our streamlined platform, artists and collectors can manage artwork authenticity and provenance in a secure and efficient way
+                        With our streamlined platform, artists and collectors can authenticate and manage artworks securely and efficiently
                     </p>
                     <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground">
                         <CheckCircle className="h-4 w-4 text-primary" />
-                        <span>Our platform offers a transparent and secure system, ensuring all transactions are recorded immutably on the blockchain and can be easily verified</span>
+                        <span>Transparent and secure system with all certificates recorded permanently on blockchain</span>
                     </div>
                 </div>
             </div>
         </section>
     );
-}
+};
+
+export default HowItWorks;

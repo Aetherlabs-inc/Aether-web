@@ -1,35 +1,62 @@
 "use client"
 
 import * as React from "react"
-import { MoonIcon, SunIcon } from "@radix-ui/react-icons"
+import { Moon, Sun } from "lucide-react"
 import { useTheme } from "next-themes"
 
-import { Button } from "@/components/ui/button"
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
+import { Switch } from "@/components/ui/switch"
 
-export function ThemeSwitcher() {
-    const { setTheme } = useTheme()
+interface ThemeSwitcherProps {
+    size?: number;
+    className?: string;
+}
+
+export function ThemeSwitcher({ size = 18, className = "" }: ThemeSwitcherProps) {
+    const { theme, setTheme } = useTheme()
+
+    // Check if current theme is dark
+    const isDarkMode = theme === 'dark'
+
+    const toggleTheme = () => {
+        setTheme(theme === 'dark' ? 'light' : 'dark')
+    }
 
     return (
-        <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-                <Button variant="outline" size="icon">
-                    <SunIcon className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
-                    <MoonIcon className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
-                    <span className="sr-only">Toggle theme</span>
-                </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent align="end">
-                <DropdownMenuItem onClick={() => setTheme("light")}>
-                    Light
-                </DropdownMenuItem>
-                <DropdownMenuItem onClick={() => setTheme("dark")}>
-                    Dark
-                </DropdownMenuItem>
-                <DropdownMenuItem onClick={() => setTheme("system")}>
-                    System
-                </DropdownMenuItem>
-            </DropdownMenuContent>
-        </DropdownMenu>
+        <div className={`flex items-center gap-2 rounded-full px-3 py-2 ${className}`}>
+            <Moon size={size} className={`${isDarkMode ? 'text-primary' : 'text-muted-foreground'}`} />
+            <Switch
+                checked={!isDarkMode}
+                onCheckedChange={toggleTheme}
+                className="data-[state=checked]:bg-primary"
+            />
+            <Sun size={size} className={`${!isDarkMode ? 'text-primary' : 'text-muted-foreground'}`} />
+        </div>
+    )
+}
+
+// Mobile version with label
+export function ThemeSwitcherWithLabel({ size = 16, className = "" }: ThemeSwitcherProps) {
+    const { theme, setTheme } = useTheme()
+
+    // Check if current theme is dark
+    const isDarkMode = theme === 'dark'
+
+    const toggleTheme = () => {
+        setTheme(theme === 'dark' ? 'light' : 'dark')
+    }
+
+    return (
+        <div className={`flex items-center justify-between px-3 py-2 ${className}`}>
+            <span className="text-sm text-muted-foreground">Theme</span>
+            <div className="flex items-center gap-2">
+                <Moon size={size} className={`${isDarkMode ? 'text-primary' : 'text-muted-foreground'}`} />
+                <Switch
+                    checked={!isDarkMode}
+                    onCheckedChange={toggleTheme}
+                    className="data-[state=checked]:bg-primary"
+                />
+                <Sun size={size} className={`${!isDarkMode ? 'text-primary' : 'text-muted-foreground'}`} />
+            </div>
+        </div>
     )
 }

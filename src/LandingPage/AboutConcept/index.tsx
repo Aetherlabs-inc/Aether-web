@@ -1,47 +1,67 @@
-import Image from "next/image";
 import React from "react";
-const AboutConcept = () => {
+import { Printer, Clock, Globe } from 'lucide-react';
+const Problem = () => {
+    const problems = [
+        {
+            icon: <Printer size={40} />,
+            title: "Forgery is Embarrassingly Easy",
+            description:
+                "A decent printer. Some fancy paper. A fake signature. Congratulations—someone just &apos;authenticated&apos; a counterfeit of your work. And buyers can&apos;t tell the difference.",
+        },
+        {
+            icon: <Clock size={40} />,
+            title: "Time Destroys Everything",
+            description:
+                "Paper yellows. Ink fades. Storage floods. In 20 years, how will collectors prove they own the real thing? They won't.",
+        },
+        {
+            icon: <Globe size={40} />,
+            title: "Lost in Translation",
+            description:
+                "Your art travels the world, but documentation doesn't. After decades of sales and transfers, the paper trail goes cold—and your artwork's legitimacy dies with it.",
+        },
+    ];
+
     return (
-        <section className="">
-            <div className="gap-16 items-center py-8 px-4 mx-auto max-w-screen-xl lg:grid lg:grid-cols-2 lg:py-16 lg:px-6">
-                {/* Text Section */}
-                <div className="font-lightsm:text-lg">
-                    <h2 className="mb-4 text-4xl tracking-tight">
-                        Revolutionizing Art Authentication for a New Era
-                    </h2>
-                    <div className="space-y-4 font-light text-lg">
-                        <p className="mb-4">
-                            In today’s art market, authenticity is everything. With counterfeit artworks on the rise, it has never been more critical for artists, galleries, and collectors to secure the authenticity of their creations and investments. The old ways of certifying art are outdated—easily forged, cumbersome to manage, and untraceable. But we believe there’s a better way.
-                        </p>
-                        <p className="mb-4">
-                            <strong>Aether</strong> combines the power of NFC technology and blockchain security to create a foolproof solution for authenticating artwork. Every piece of art registered on our platform is linked to a unique, tamper-proof digital certificate stored securely on the blockchain, ensuring a permanent, transparent, and traceable record of authenticity.
-                        </p>
-                        <p>
-                            Our mission is to empower artists and safeguard the value of their work, ensuring that every creation, whether a painting, sculpture, or digital piece, is forever verifiable and truly authentic.
+        <section className="w-full py-24 px-6 md:px-12 bg-background ">
+            <div className="max-w-6xl mx-auto space-y-16">
+                {/* Header Section */}
+                <div>
+                    <span className="inline-block text-sm font-medium tracking-wide uppercase bg-muted px-3 py-1 rounded-full text-muted-foreground">
+                        The Problem
+                    </span>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-start py-4">
+                        <div className="space-y-3 w-2/3">
+
+                            <h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-foreground">
+                                Your Art Deserves Better Than a Piece of Paper
+                            </h2>
+                        </div>
+                        <p className="text-muted-foreground text-lg leading-relaxed">
+                            You poured your soul into your work. Meanwhile, counterfeiters are printing fake
+                            certificates on their home printers. It&apos;s 2025. Why are we still authenticating
+                            million-dollar art with technology from 1825?
                         </p>
                     </div>
                 </div>
 
-                {/* Image Section */}
-                <div className="grid grid-cols-2 gap-4 mt-8 grayscale">
-                    <Image
-                        className="w-full rounded-lg"
-                        src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/content/office-long-2.png"
-                        alt="NFC Art Authentication"
-                        width={1000}
-                        height={1000}
-                    />
-                    <Image
-                        className="mt-4 w-full lg:mt-10 rounded-lg"
-                        src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/content/office-long-1.png"
-                        alt="Blockchain Security"
-                        width={1000}
-                        height={1000}
-                    />
+                {/* Problem List */}
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+                    {problems.map((problem, index) => (
+                        <div
+                            key={index}
+                            className="flex flex-col space-y-4 bg-card p-8 rounded-2xl border border-border hover:border-border/60 transition-all duration-300"
+                        >
+                            <div className="text-4xl">{problem.icon}</div>
+                            <h3 className="text-xl font-medium text-foreground">{problem.title}</h3>
+                            <p className="text-muted-foreground leading-relaxed">{problem.description}</p>
+                        </div>
+                    ))}
                 </div>
             </div>
         </section>
     );
 };
 
-export default AboutConcept;
+export default Problem;
