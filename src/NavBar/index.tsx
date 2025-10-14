@@ -1,28 +1,15 @@
-    
 'use client'
-import React, { useState, useEffect } from 'react';
-import { Button } from '@/components/ui/button';
 
-import { Menu, X, CircleDot, LayoutDashboard, DollarSign, Sun, Moon } from 'lucide-react';
+import React, { useState } from 'react';
+import { Button } from '@/components/ui/button';
+import { Menu, X } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { ToggleGroup, ToggleGroupItem } from '@/components/ui/toggle-group';
-import { Switch } from '@/components/ui/switch';
+import { ThemeSwitcher, ThemeSwitcherWithLabel } from '@/components/themeSwitcher';
 
 const Header = () => {
     const [activePage, setActivePage] = useState('features');
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-    const [isDarkMode, setIsDarkMode] = useState(false); // Default to light mode
-
-    useEffect(() => {
-        // Apply the theme to the document when it changes
-        if (isDarkMode) {
-            document.documentElement.classList.remove('light-mode');
-            document.documentElement.classList.add('dark-mode');
-        } else {
-            document.documentElement.classList.remove('dark-mode');
-            document.documentElement.classList.add('light-mode');
-        }
-    }, [isDarkMode]);
 
     const handleNavClick = (page: string) => (e: React.MouseEvent) => {
         e.preventDefault();
@@ -38,14 +25,11 @@ const Header = () => {
         setMobileMenuOpen(!mobileMenuOpen);
     };
 
-    const toggleTheme = () => {
-        setIsDarkMode(!isDarkMode);
-    };
 
     return (
         <div className="sticky top-0 z-50 pt-8 px-4">
             <header className="w-full max-w-7xl mx-auto py-3 px-6 md:px-8 flex items-center justify-between">
-                <div className="inline-flex items-center gap-2">
+                <div className="p-3">
                     <span
                         aria-label="Aether"
                         className="inline-flex h-10 w-10 items-center justify-center rounded-md bg-foreground text-background font-semibold tracking-tight"
@@ -53,6 +37,7 @@ const Header = () => {
                         Æ
                     </span>
                     <span className="text-xl font-medium tracking-tight text-foreground">Aether</span>
+
                 </div>
 
                 {/* Mobile menu button */}
@@ -75,17 +60,7 @@ const Header = () => {
                                 )}
                                 onClick={handleNavClick('features')}
                             >
-                                <CircleDot size={16} className="inline-block mr-1.5" /> Features
-                            </ToggleGroupItem>
-                            <ToggleGroupItem
-                                value="dashboard"
-                                className={cn(
-                                    "px-4 py-2 rounded-full transition-colors relative",
-                                    activePage === 'dashboard' ? 'text-accent-foreground bg-accent' : 'text-muted-foreground hover:text-foreground hover:bg-muted'
-                                )}
-                                onClick={handleNavClick('dashboard')}
-                            >
-                                <LayoutDashboard size={16} className="inline-block mr-1.5" /> Dashboard
+                                Features
                             </ToggleGroupItem>
                             <ToggleGroupItem
                                 value="pricing"
@@ -95,7 +70,7 @@ const Header = () => {
                                 )}
                                 onClick={handleNavClick('pricing')}
                             >
-                                <DollarSign size={16} className="inline-block mr-1.5" /> Pricing
+                                Pricing
                             </ToggleGroupItem>
                         </ToggleGroup>
                     </div>
@@ -111,15 +86,7 @@ const Header = () => {
                                     }`}
                                 onClick={handleNavClick('features')}
                             >
-                                <CircleDot size={16} className="inline-block mr-1.5" /> Features
-                            </a>
-                            <a
-                                href="#dashboard"
-                                className={`px-3 py-2 text-sm rounded-md transition-colors ${activePage === 'dashboard' ? 'bg-accent text-accent-foreground' : 'text-muted-foreground hover:text-foreground hover:bg-muted'
-                                    }`}
-                                onClick={handleNavClick('dashboard')}
-                            >
-                                <LayoutDashboard size={16} className="inline-block mr-1.5" /> Dashboard
+                                Features
                             </a>
                             <a
                                 href="#pricing"
@@ -127,39 +94,26 @@ const Header = () => {
                                     }`}
                                 onClick={handleNavClick('pricing')}
                             >
-                                <DollarSign size={16} className="inline-block mr-1.5" /> Pricing
+                                Pricing
+                            </a>
+                            <a
+                                href="#"
+                                className="px-3 py-2 text-sm rounded-md transition-colors text-muted-foreground hover:text-foreground hover:bg-muted"
+                            >
+                                FAQ
                             </a>
 
                             {/* Add theme toggle for mobile */}
-                            <div className="flex items-center justify-between px-3 py-2">
-                                <span className="text-sm text-muted-foreground">Theme</span>
-                                <div className="flex items-center gap-2">
-                                    <Moon size={16} className={`${isDarkMode ? 'text-primary' : 'text-muted-foreground'}`} />
-                                    <Switch
-                                        checked={!isDarkMode}
-                                        onCheckedChange={toggleTheme}
-                                        className="data-[state=checked]:bg-primary"
-                                    />
-                                    <Sun size={16} className={`${!isDarkMode ? 'text-primary' : 'text-muted-foreground'}`} />
-                                </div>
-                            </div>
+                            <ThemeSwitcherWithLabel />
                         </div>
                     </div>
                 )}
 
                 <div className="hidden md:flex items-center gap-4">
                     {/* Theme toggle for desktop */}
-                    <div className="flex items-center gap-2 rounded-full px-3 py-2">
-                        <Moon size={18} className={`${isDarkMode ? 'text-primary' : 'text-muted-foreground'}`} />
-                        <Switch
-                            checked={!isDarkMode}
-                            onCheckedChange={toggleTheme}
-                            className="data-[state=checked]:bg-primary"
-                        />
-                        <Sun size={18} className={`${!isDarkMode ? 'text-primary' : 'text-muted-foreground'}`} />
-                    </div>
+                    <ThemeSwitcher />
                     <div className="rounded-2xl">
-                        <Button variant="ghost" className="text-muted-foreground hover:text-foreground hover:bg-muted">Log in</Button>
+                        <Button className="bg-primary text-primary-foreground hover:bg-primary/90">Join Waitlist</Button>
                     </div>
                 </div>
             </header>
