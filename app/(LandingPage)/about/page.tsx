@@ -1,9 +1,9 @@
-import AboutAether from "@/src/about";
+import AboutAetherLabs from "@/src/about";
 
 export default function About() {
     return (
         <div>
-            <AboutAether />
+            <AboutAetherLabs />
         </div>
     );
 }

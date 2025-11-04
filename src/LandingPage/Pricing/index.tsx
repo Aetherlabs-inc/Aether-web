@@ -145,7 +145,7 @@ const Pricing = () => {
                         Join the waitlist and be among the first to authenticate your artwork with blockchain technology.
                     </p>
                     <div className="text-muted-foreground">
-                        Have questions? <a href="mailto:hello@aether.com" className="text-primary hover:underline">Email us at hello@aether.com</a>
+                        Have questions? <a href="mailto:hello@aetherlabs.com" className="text-primary hover:underline">Email us at hello@aetherlabs.com</a>
                     </div>
                 </div>
             </div>

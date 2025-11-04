@@ -1,13 +1,13 @@
 'use client';
 import React from 'react';
 
-const AboutAether: React.FC = () => {
+const AboutAetherLabs: React.FC = () => {
     return (
         <div className="max-w-5xl mx-auto px-6 py-16">
             {/* Header with subtle animation */}
             <div className="mb-20 space-y-4">
                 <h1 className="text-5xl font-semibold mb-4 relative">
-                    About Aether
+                    About AetherLabs
                     <span className="absolute -bottom-2 left-0 w-24 h-1 bg-indigo-600/50 transform origin-left transition-all duration-300 hover:w-32"></span>
                 </h1>
                 <p className="text-xl font-light max-w-2xl">
@@ -21,7 +21,7 @@ const AboutAether: React.FC = () => {
                     Our Mission
                 </div>
                 <p className="text-lg leading-relaxed">
-                    At Aether, we are redefining the way art is authenticated and experienced. Our mission is to bring authenticity to creativity by leveraging cutting-edge technology to safeguard the integrity of artworks.
+                    At AetherLabs, we are redefining the way art is authenticated and experienced. Our mission is to bring authenticity to creativity by leveraging cutting-edge technology to safeguard the integrity of artworks.
                 </p>
             </section>
 
@@ -57,7 +57,7 @@ const AboutAether: React.FC = () => {
 
             {/* Features */}
             <section className="mb-20">
-                <h2 className="text-2xl font-medium mb-8 text-indigo-600">Why Aether?</h2>
+                <h2 className="text-2xl font-medium mb-8 text-indigo-600">Why AetherLabs?</h2>
                 <div className="grid md:grid-cols-3 gap-8">
                     {[
                         { title: 'Efficiency', desc: 'Instant verification anytime, anywhere.' },
@@ -83,7 +83,7 @@ const AboutAether: React.FC = () => {
                 <div className="max-w-2xl mx-auto text-center space-y-6">
                     <h2 className="text-2xl font-medium text-indigo-600">Join Us</h2>
                     <p className="leading-relaxed">
-                        Whether you&apos;re an artist looking to protect your work, a collector seeking peace of mind, or a gallery aiming to innovate, Aether is here to support your journey.
+                        Whether you&apos;re an artist looking to protect your work, a collector seeking peace of mind, or a gallery aiming to innovate, AetherLabs is here to support your journey.
                     </p>
                     <button className="px-8 py-2.5 border-2 border-indigo-600 rounded-lg 
                                      hover:bg-indigo-600 hover:text-white
@@ -97,4 +97,4 @@ const AboutAether: React.FC = () => {
     );
 };
 
-export default AboutAether;
+export default AboutAetherLabs;

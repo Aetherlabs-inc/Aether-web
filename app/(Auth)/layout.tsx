@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-    title: "Aether",
+    title: "AetherLabs",
     description: "Bringing Authenticity to Creativity",
 };
 
@@ -25,7 +25,7 @@ export default function AuthLayout({ children }: AuthLayoutProps) {
                         <div className="flex h-6 w-6 items-center justify-center rounded-md bg-primary text-primary-foreground">
                             Æ
                         </div>
-                        Aether Inc.
+                        AetherLabs
                     </Link>
                 </div>
                 <div className="flex flex-1 items-center justify-center">
@@ -37,7 +37,7 @@ export default function AuthLayout({ children }: AuthLayoutProps) {
             <div className="relative hidden bg-muted lg:block bg-white">
                 <Image
                     src="/aetherhero1.png"
-                    alt="Aether creative workspace showcasing artistic authenticity"
+                    alt="AetherLabs creative workspace showcasing artistic authenticity"
                     className="absolute inset-0 h-full w-full object-cover"
                     width={1000}
                     height={1000}

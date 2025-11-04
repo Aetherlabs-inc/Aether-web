@@ -31,12 +31,12 @@ const Header = () => {
             <header className="w-full max-w-7xl mx-auto py-3 px-6 md:px-8 flex items-center justify-between">
                 <div className="p-3">
                     <span
-                        aria-label="Aether"
+                        aria-label="AetherLabs"
                         className="inline-flex h-10 w-10 items-center justify-center rounded-md bg-foreground text-background font-semibold tracking-tight"
                     >
-                        Æ
+                        ÆL
                     </span>
-                    <span className="text-xl font-medium tracking-tight text-foreground">Aether</span>
+                    <span className="text-xl font-medium tracking-tight text-foreground"> AetherLabs</span>
 
                 </div>
 

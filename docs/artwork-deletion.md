@@ -2,7 +2,7 @@
 
 ## Overview
 
-The artwork deletion process in Aether is designed to safely remove artworks and all their associated data while maintaining data integrity and providing a good user experience.
+The artwork deletion process in AetherLabs is designed to safely remove artworks and all their associated data while maintaining data integrity and providing a good user experience.
 
 ## Components Involved
 

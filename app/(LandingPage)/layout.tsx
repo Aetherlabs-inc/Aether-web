@@ -5,7 +5,7 @@ import Footer from "@/src/Footer";
 
 
 export const metadata: Metadata = {
-  title: "Aether",
+  title: "AetherLabs",
   description: "Bringing Authenticity to Creativity",
 };
 

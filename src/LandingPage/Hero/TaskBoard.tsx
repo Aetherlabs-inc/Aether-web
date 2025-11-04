@@ -3,7 +3,7 @@ import { useToast } from "@/hooks/use-toast";
 import TaskColumn, { Column } from './TaskColumn';
 import { Task } from './TaskCard';
 
-// Aether-flavored seed data
+// AetherLabs-flavored seed data
 const initialColumns: Column[] = [
     {
         id: 'todo',
