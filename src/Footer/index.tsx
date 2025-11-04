@@ -122,8 +122,8 @@ const Footer = () => {
                 <div className="mt-16 pt-8 border-t border-border flex flex-col md:flex-row justify-between items-center text-muted-foreground text-sm">
                     <div>© {year} AetherLabs. All rights reserved.</div>
                     <div className="flex gap-6 mt-4 md:mt-0">
-                        <a href="#" className="hover:text-foreground transition-colors">Privacy</a>
-                        <a href="#" className="hover:text-foreground transition-colors">Terms</a>
+                        <a href="/privacy" className="hover:text-foreground transition-colors">Privacy</a>
+                        <a href="/terms" className="hover:text-foreground transition-colors">Terms</a>
                         <a href="#" className="hover:text-foreground transition-colors">Cookies</a>
                     </div>
                 </div>
