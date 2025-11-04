@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Footer from "@/src/Footer";
 import Link from "next/link";
-
+import React from 'react';
 export const metadata: Metadata = {
     title: "AetherLabs Survey",
     description: "Shape the future of art authentication",
