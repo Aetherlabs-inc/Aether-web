@@ -53,7 +53,7 @@ const COACertificate: React.FC<COACertificateProps> = ({
                 return {
                     icon: Building2,
                     label: 'Gallery Verified',
-                    description: 'Aether Trusted Gallery',
+                    description: 'AetherLabs Trusted Gallery',
                     color: 'text-black dark:text-white',
                     bgColor: 'bg-gray-100 dark:bg-gray-800'
                 };
@@ -250,7 +250,7 @@ const COACertificate: React.FC<COACertificateProps> = ({
             <div className="border-t border-black dark:border-white pt-6">
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-center">
                     <div>
-                        <p className="text-sm font-semibold text-black dark:text-white">Aether Platform</p>
+                        <p className="text-sm font-semibold text-black dark:text-white">AetherLabs Platform</p>
                         <p className="text-xs text-gray-600 dark:text-gray-400">Digital Art Registry</p>
                     </div>
                     <div>

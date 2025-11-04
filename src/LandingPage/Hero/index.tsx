@@ -32,7 +32,7 @@ const HeroSection = () => {
             </h1>
 
             <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto text-balance">
-                Stop worrying about counterfeits. Aether combines NFC technology and blockchain security to create unforgeable certificates of authenticity—giving your artwork the protection it deserves.
+                Stop worrying about counterfeits. AetherLabs combines NFC technology and blockchain security to create unforgeable certificates of authenticity—giving your artwork the protection it deserves.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center pt-6 items-center">

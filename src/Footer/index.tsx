@@ -12,12 +12,12 @@ const Footer = () => {
                         {/* Simple logomark placeholder: swap with your SVG */}
                         <div className="inline-flex items-center gap-2">
                             <span
-                                aria-label="Aether"
+                                aria-label="AetherLabs"
                                 className="inline-flex h-10 w-10 items-center justify-center rounded-md bg-foreground text-background font-semibold tracking-tight"
                             >
                                 Æ
                             </span>
-                            <span className="text-xl font-medium tracking-tight text-foreground">Aether</span>
+                            <span className="text-xl font-medium tracking-tight text-foreground">AetherLabs</span>
                         </div>
 
                         <p className="text-muted-foreground max-w-xs">
@@ -28,7 +28,7 @@ const Footer = () => {
                         <div className="flex items-center gap-4">
                             <a
                                 href="#"
-                                aria-label="Aether on X (Twitter)"
+                                aria-label="AetherLabs on X (Twitter)"
                                 className="h-10 w-10 rounded-full bg-muted flex items-center justify-center text-muted-foreground hover:text-foreground transition-colors"
                             >
                                 {/* X / Twitter */}
@@ -38,7 +38,7 @@ const Footer = () => {
                             </a>
                             <a
                                 href="#"
-                                aria-label="Aether on LinkedIn"
+                                aria-label="AetherLabs on LinkedIn"
                                 className="h-10 w-10 rounded-full bg-muted flex items-center justify-center text-muted-foreground hover:text-foreground transition-colors"
                             >
                                 {/* LinkedIn */}
@@ -50,7 +50,7 @@ const Footer = () => {
                             </a>
                             <a
                                 href="#"
-                                aria-label="Aether on Instagram"
+                                aria-label="AetherLabs on Instagram"
                                 className="h-10 w-10 rounded-full bg-muted flex items-center justify-center text-muted-foreground hover:text-foreground transition-colors"
                             >
                                 {/* Instagram */}
@@ -62,7 +62,7 @@ const Footer = () => {
                             </a>
                             <a
                                 href="#"
-                                aria-label="Aether on YouTube"
+                                aria-label="AetherLabs on YouTube"
                                 className="h-10 w-10 rounded-full bg-muted flex items-center justify-center text-muted-foreground hover:text-foreground transition-colors"
                             >
                                 {/* YouTube */}
@@ -120,7 +120,7 @@ const Footer = () => {
 
                 {/* Bottom bar */}
                 <div className="mt-16 pt-8 border-t border-border flex flex-col md:flex-row justify-between items-center text-muted-foreground text-sm">
-                    <div>© {year} Aether. All rights reserved.</div>
+                    <div>© {year} AetherLabs. All rights reserved.</div>
                     <div className="flex gap-6 mt-4 md:mt-0">
                         <a href="#" className="hover:text-foreground transition-colors">Privacy</a>
                         <a href="#" className="hover:text-foreground transition-colors">Terms</a>

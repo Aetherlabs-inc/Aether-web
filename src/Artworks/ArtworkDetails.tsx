@@ -50,7 +50,7 @@ const ArtworkDetails: React.FC<ArtworkDetailsProps> = ({
                 return {
                     icon: Shield,
                     label: 'Gallery Verified',
-                    description: 'Aether Trusted Gallery',
+                    description: 'AetherLabs Trusted Gallery',
                     color: 'text-black dark:text-white',
                     bgColor: 'bg-gray-100 dark:bg-gray-800'
                 };

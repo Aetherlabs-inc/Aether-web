@@ -33,12 +33,12 @@ const FAQ = () => {
             answer: "We accept JPG, PNG, TIFF, and HEIC files up to 50MB each. For 3D art or sculptures, you can upload multiple angles. We automatically optimize images while preserving quality for verification purposes."
         },
         {
-            question: "When will Aether launch?",
+            question: "When will AetherLabs launch?",
             answer: "We're planning to launch in February 2025. Waitlist members will get early access 2 weeks before public launch, plus exclusive founding member pricing."
         },
         {
             question: "What if I have more questions?",
-            answer: "Email us at hello@aether.com. We respond to every message within 24 hours and would love to hear from you!"
+            answer: "Email us at hello@aetherlabs.com. We respond to every message within 24 hours and would love to hear from you!"
         }
     ];
 
