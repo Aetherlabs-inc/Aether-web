@@ -164,7 +164,7 @@ const Artworks: React.FC = () => {
                     }}
                     certificateData={{
                         certificateId: selectedArtwork.certificates?.[0]?.certificate_id ?? '',
-                        qrCode: `https://aether.app/verify/${selectedArtwork.certificates?.[0]?.certificate_id}`,
+                        qrCode: `https://aetherlabs.art/verify/${selectedArtwork.certificates?.[0]?.certificate_id}`,
                         blockchainHash: selectedArtwork.certificates?.[0]?.blockchain_hash ?? '',
                         generatedAt: selectedArtwork.certificates?.[0]?.generated_at ?? selectedArtwork.created_at
                     }}

@@ -172,7 +172,7 @@ export class ArtworkRegistrationService {
         try {
             // Simulate COA generation process
             const certificateId = `COA-${Date.now()}-${Math.random().toString(36).substr(2, 9).toUpperCase()}`
-            const qrCode = `https://aether.app/verify/${certificateId}`
+            const qrCode = `https://aetherlabs.art/verify/${certificateId}`
             const blockchainHash = `0x${Math.random().toString(16).substr(2, 64)}`
             const generatedAt = new Date().toISOString()
 
