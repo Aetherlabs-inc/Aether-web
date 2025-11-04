@@ -4,8 +4,12 @@ import Image from "next/image";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-    title: "AetherLabs",
-    description: "Bringing Authenticity to Creativity",
+    title: "Sign In | AetherLabs",
+    description: "Sign in to your AetherLabs account to manage your artwork, certificates, and collections.",
+    robots: {
+        index: false,
+        follow: false,
+    },
 };
 
 interface AuthLayoutProps {

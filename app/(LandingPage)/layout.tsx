@@ -5,8 +5,8 @@ import Footer from "@/src/Footer";
 
 
 export const metadata: Metadata = {
-  title: "AetherLabs",
-  description: "Bringing Authenticity to Creativity",
+  title: "AetherLabs - Art Authentication Platform",
+  description: "Bringing Authenticity to Creativity. AetherLabs provides NFC-enabled certificates of authenticity for artists, galleries, and collectors.",
 };
 
 export default function RootLayout({
