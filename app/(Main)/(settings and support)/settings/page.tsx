@@ -1,4 +1,14 @@
 import React from 'react';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+    title: "Settings",
+    description: "Manage your AetherLabs account settings, preferences, and security options.",
+    robots: {
+        index: false,
+        follow: false,
+    },
+};
 
 const SettingsPage: React.FC = () => {
     return (

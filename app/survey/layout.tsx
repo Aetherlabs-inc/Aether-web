@@ -3,8 +3,12 @@ import Footer from "@/src/Footer";
 import Link from "next/link";
 import React from 'react';
 export const metadata: Metadata = {
-    title: "AetherLabs Survey",
-    description: "Shape the future of art authentication",
+    title: "Survey",
+    description: "Help us improve AetherLabs by sharing your feedback. Your input helps us build better art authentication solutions.",
+    robots: {
+        index: false,
+        follow: false,
+    },
 };
 
 export default function RootLayout({

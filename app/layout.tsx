@@ -6,8 +6,70 @@ import Provider from "@/components/provider";
 
 
 export const metadata: Metadata = {
-    title: "AetherLabs",
-    description: "Bringing Authenticity to Creativity",
+    metadataBase: new URL('https://aetherlabs.art'),
+    title: {
+        default: "AetherLabs - Bringing Authenticity to Creativity",
+        template: "%s | AetherLabs"
+    },
+    description: "AetherLabs is the premier platform for art authentication, providing NFC-enabled certificates of authenticity (COA) for artists, galleries, and collectors. Protect your artwork and verify authenticity with cutting-edge technology.",
+    keywords: [
+        'art authentication',
+        'NFC certificates',
+        'certificate of authenticity',
+        'art verification',
+        'artwork authentication',
+        'art marketplace',
+        'digital art certificates',
+        'art provenance',
+        'art collection management',
+        'AetherLabs',
+        'art security',
+        'blockchain art',
+        'art authentication platform'
+    ],
+    authors: [{ name: 'AetherLabs Inc.' }],
+    creator: 'AetherLabs Inc.',
+    publisher: 'AetherLabs Inc.',
+    robots: {
+        index: true,
+        follow: true,
+        googleBot: {
+            index: true,
+            follow: true,
+            'max-video-preview': -1,
+            'max-image-preview': 'large',
+            'max-snippet': -1,
+        },
+    },
+    openGraph: {
+        type: 'website',
+        locale: 'en_US',
+        url: 'https://aetherlabs.art',
+        siteName: 'AetherLabs',
+        title: 'AetherLabs - Bringing Authenticity to Creativity',
+        description: 'Premier platform for art authentication with NFC-enabled certificates of authenticity. Protect and verify artwork with cutting-edge technology.',
+        images: [
+            {
+                url: '/aetherhero.jpg',
+                width: 1200,
+                height: 630,
+                alt: 'AetherLabs - Art Authentication Platform',
+            },
+        ],
+    },
+    twitter: {
+        card: 'summary_large_image',
+        title: 'AetherLabs - Bringing Authenticity to Creativity',
+        description: 'Premier platform for art authentication with NFC-enabled certificates of authenticity.',
+        creator: '@AetherLabs',
+        site: '@AetherLabs',
+        images: ['/aetherhero.jpg'],
+    },
+    alternates: {
+        canonical: 'https://aetherlabs.art',
+    },
+    category: 'art technology',
+    classification: 'Art Authentication Platform',
 };
 
 
