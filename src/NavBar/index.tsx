@@ -1,15 +1,22 @@
 'use client'
 
 import React, { useState } from 'react';
+import { useRouter } from 'next/navigation';
 import { Button } from '@/components/ui/button';
 import { Menu, X } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { ToggleGroup, ToggleGroupItem } from '@/components/ui/toggle-group';
 import { ThemeSwitcher, ThemeSwitcherWithLabel } from '@/components/themeSwitcher';
+import Link from 'next/link';
 
 const Header = () => {
+    const router = useRouter();
     const [activePage, setActivePage] = useState('features');
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+    const handleJoinWaitlist = () => {
+        router.push('/waitlist');
+    };
 
     const handleNavClick = (page: string) => (e: React.MouseEvent) => {
         e.preventDefault();
@@ -30,14 +37,15 @@ const Header = () => {
         <div className="sticky top-0 z-50 pt-8 px-4">
             <header className="w-full max-w-7xl mx-auto py-3 px-6 md:px-8 flex items-center justify-between">
                 <div className="p-3">
-                    <span
-                        aria-label="AetherLabs"
-                        className="inline-flex h-10 w-10 items-center justify-center rounded-md bg-foreground text-background font-semibold tracking-tight"
-                    >
-                        ÆL
-                    </span>
-                    <span className="text-xl font-medium tracking-tight text-foreground"> AetherLabs</span>
-
+                    <Link href="/">
+                        <span
+                            aria-label="AetherLabs"
+                            className="inline-flex h-10 w-10 items-center justify-center rounded-md bg-foreground text-background font-semibold tracking-tight"
+                        >
+                            ÆL
+                        </span>
+                        <span className="text-xl font-medium tracking-tight text-foreground"> AetherLabs</span>
+                    </Link>
                 </div>
 
                 {/* Mobile menu button */}
@@ -113,7 +121,12 @@ const Header = () => {
                     {/* Theme toggle for desktop */}
                     <ThemeSwitcher />
                     <div className="rounded-2xl">
-                        <Button className="bg-primary text-primary-foreground hover:bg-primary/90">Join Waitlist</Button>
+                        <Button
+                            onClick={handleJoinWaitlist}
+                            className="bg-primary text-primary-foreground hover:bg-primary/90 shadow-lg hover:shadow-xl"
+                        >
+                            Join Waitlist
+                        </Button>
                     </div>
                 </div>
             </header>

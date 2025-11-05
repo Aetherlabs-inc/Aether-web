@@ -34,7 +34,7 @@ const FAQ = () => {
         },
         {
             question: "When will AetherLabs launch?",
-            answer: "We're planning to launch in February 2025. Waitlist members will get early access 2 weeks before public launch, plus exclusive founding member pricing."
+            answer: "We're planning to launch in Fall 2026. Waitlist members will get early access 2 weeks before public launch, plus exclusive founding member pricing. Join now to secure your spot - only 5,000 spots available!"
         },
         {
             question: "What if I have more questions?",

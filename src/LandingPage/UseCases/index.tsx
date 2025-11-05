@@ -1,8 +1,18 @@
+'use client'
+
 import React from 'react';
+import { useRouter } from 'next/navigation';
+import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Palette, Building2, Gem } from 'lucide-react';
 
 const UseCases = () => {
+    const router = useRouter();
+
+    const handleJoinWaitlist = () => {
+        router.push('/waitlist');
+    };
+
     const useCases = [
         {
             icon: <Palette className="h-8 w-8 text-primary" />,
@@ -71,6 +81,21 @@ const UseCases = () => {
                             </CardContent>
                         </Card>
                     ))}
+                </div>
+
+                <div className="text-center space-y-4 pt-8">
+                    <h3 className="text-2xl font-medium tracking-tighter text-foreground">
+                        Ready to protect your art journey?
+                    </h3>
+                    <p className="text-muted-foreground max-w-2xl mx-auto">
+                        Join artists, galleries, and collectors who are securing their artwork with blockchain authentication.
+                    </p>
+                    <Button
+                        onClick={handleJoinWaitlist}
+                        className="mt-4 bg-primary text-primary-foreground hover:bg-primary/90 shadow-lg hover:shadow-xl px-8 h-12"
+                    >
+                        Join Waitlist - Get Started Today
+                    </Button>
                 </div>
             </div>
         </section>

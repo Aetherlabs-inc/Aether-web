@@ -80,7 +80,7 @@ export default function RootLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <html lang="en">
+        <html lang="en" suppressHydrationWarning>
             <head>
                 <link rel="stylesheet" href="https://use.typekit.net/gtt1ipu.css"></link>
             </head>

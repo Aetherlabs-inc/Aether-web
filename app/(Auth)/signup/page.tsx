@@ -1,6 +1,6 @@
-import React from "react"
 import type { Metadata } from "next"
-import { SupabaseMultiStepSignup } from "@/src/auth/supabase-multi-step-signup"
+import { redirect } from "next/navigation"
+// import { SupabaseMultiStepSignup } from "@/src/auth/supabase-multi-step-signup"
 
 export const metadata: Metadata = {
     title: "Sign Up",
@@ -23,11 +23,15 @@ export const metadata: Metadata = {
 }
 
 export default function SignupPage() {
-    return (
-        <div className="min-h-screen bg-white dark:bg-black flex items-center justify-center p-6">
-            <div className="w-full max-w-2xl">
-                <SupabaseMultiStepSignup />
-            </div>
-        </div>
-    )
+    // Signup is disabled during testing - redirect to waitlist
+    // All signup code is preserved above and can be re-enabled by uncommenting the component
+    redirect('/waitlist')
+
+    // return (
+    //     <div className="min-h-screen bg-white dark:bg-black flex items-center justify-center p-6">
+    //         <div className="w-full max-w-2xl">
+    //             <SupabaseMultiStepSignup />
+    //         </div>
+    //     </div>
+    // )
 }

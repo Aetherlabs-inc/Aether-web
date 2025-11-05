@@ -1,18 +1,19 @@
 'use client'
 
 import React, { useState } from 'react'
+import { useRouter } from 'next/navigation'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { cn } from '@/lib/utils'
-import { createClient } from '@/src/lib/supabase'
-import { userProfileService } from '@/src/services/user-profile-service'
-import { useToast } from '@/hooks/use-toast'
+// import { createClient } from '@/src/lib/supabase'
+// import { userProfileService } from '@/src/services/user-profile-service'
+// import { useToast } from '@/hooks/use-toast'
 import { BsEyeSlashFill, BsFillEyeFill } from "react-icons/bs"
 import Image from "next/image"
 import { ChevronLeft, ChevronRight, Check } from "lucide-react"
 
-const supabase = createClient()
+// const supabase = createClient()
 
 interface SignupData {
     fullName: string
@@ -30,12 +31,13 @@ export function SupabaseMultiStepSignup({
     className,
     ...props
 }: React.ComponentPropsWithoutRef<"div">) {
+    const router = useRouter()
     const [currentStep, setCurrentStep] = useState(1)
     const [isVisible, setIsVisible] = useState(false)
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState('')
     const [message, setMessage] = useState('')
-    const { toast } = useToast()
+    // const { toast } = useToast()
 
     const [formData, setFormData] = useState<SignupData>({
         fullName: '',
@@ -111,52 +113,9 @@ export function SupabaseMultiStepSignup({
         setMessage('')
 
         try {
-            const { data, error } = await supabase.auth.signUp({
-                email: formData.email,
-                password: formData.password,
-                options: {
-                    data: {
-                        full_name: formData.fullName,
-                        user_type: formData.userType,
-                    }
-                }
-            })
-
-            if (error) {
-                setError(error.message)
-            } else if (data.user) {
-                // Create user profile immediately after signup
-                try {
-                    await userProfileService.createInitialProfile(
-                        data.user.id,
-                        formData.email,
-                        {
-                            full_name: formData.fullName,
-                            user_type: formData.userType,
-                        }
-                    )
-
-                    // Update profile with additional fields if provided
-                    if (formData.bio || formData.website || formData.location || formData.phone) {
-                        await userProfileService.updateUserProfile(data.user.id, {
-                            bio: formData.bio || null,
-                            website: formData.website || null,
-                            location: formData.location || null,
-                            phone: formData.phone || null,
-                        })
-                    }
-
-                    toast({
-                        title: "Account Created!",
-                        description: "Your profile has been set up successfully. Check your email for confirmation.",
-                    })
-
-                    setMessage('Account created successfully! Check your email for the confirmation link.')
-                } catch (profileError) {
-                    console.error('Error creating profile:', profileError)
-                    setMessage('Account created! Check your email for confirmation. You can complete your profile later.')
-                }
-            }
+            // Redirect to waitlist instead of creating account
+            // Since signup is disabled during testing, redirect users to waitlist
+            router.push('/waitlist')
         } catch (err) {
             setError('An unexpected error occurred')
         } finally {

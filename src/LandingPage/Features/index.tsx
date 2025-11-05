@@ -1,10 +1,17 @@
 'use client'
 import React, { useState } from 'react';
+import { useRouter } from 'next/navigation';
+import { Button } from '@/components/ui/button';
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 import { ChevronDown, Layers, Grid3x3, ListCheck, BookOpen, Star, LayoutDashboard } from "lucide-react";
 
 const Features = () => {
+    const router = useRouter();
     const [openFeature, setOpenFeature] = useState<number | null>(null);
+    
+    const handleJoinWaitlist = () => {
+        router.push('/waitlist');
+    };
 
     const features = [
         {
@@ -106,6 +113,18 @@ const Features = () => {
                             </CollapsibleContent>
                         </Collapsible>
                     ))}
+                </div>
+                
+                <div className="text-center space-y-4 pt-8">
+                    <Button 
+                        onClick={handleJoinWaitlist}
+                        className="bg-primary text-primary-foreground hover:bg-primary/90 shadow-lg hover:shadow-xl px-8 h-12"
+                    >
+                        Join Waitlist - Get Early Access
+                    </Button>
+                    <p className="text-sm text-muted-foreground">
+                        Unlock all features with founding member pricing. Limited spots available.
+                    </p>
                 </div>
             </div>
         </section>

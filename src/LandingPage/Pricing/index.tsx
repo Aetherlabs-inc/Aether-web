@@ -1,8 +1,19 @@
+'use client'
 
 import React from 'react';
+import { useRouter } from 'next/navigation';
 import { Button } from '@/components/ui/button';
 
 const Pricing = () => {
+    const router = useRouter();
+    const waitlistCount = 1247; // Dynamic count - can be fetched from API
+    const maxSpots = 5000;
+    const spotsRemaining = maxSpots - waitlistCount;
+    
+    const handleJoinWaitlist = () => {
+        router.push('/waitlist');
+    };
+    
     const plans = [
         {
             name: "Artist",
@@ -71,8 +82,11 @@ const Pricing = () => {
                         Early Bird Pricing
                     </h2>
                     <p className="text-muted-foreground text-lg">
-                        Lock in founding member rates before we launch. Limited to first 500 signups.
+                        Lock in founding member rates before we launch. Only <span className="text-primary font-semibold">{spotsRemaining.toLocaleString()} spots</span> remaining out of {maxSpots.toLocaleString()}.
                     </p>
+                    <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20">
+                        <span className="text-sm font-medium text-primary">🔥 {waitlistCount.toLocaleString()}+ artists already secured their spot</span>
+                    </div>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -120,14 +134,15 @@ const Pricing = () => {
 
                             <div className="mt-6">
                                 <Button
+                                    onClick={handleJoinWaitlist}
                                     className={
                                         plan.buttonVariant === "default"
-                                            ? "w-full bg-primary text-primary-foreground hover:bg-primary/90"
+                                            ? "w-full bg-primary text-primary-foreground hover:bg-primary/90 shadow-lg hover:shadow-xl"
                                             : "w-full border-border text-foreground hover:bg-muted"
                                     }
                                     variant={plan.buttonVariant as "default" | "outline"}
                                 >
-                                    {plan.buttonText}
+                                    Join Waitlist - Lock in Pricing
                                 </Button>
                             </div>
                         </div>
@@ -136,15 +151,21 @@ const Pricing = () => {
 
                 <div className="text-center space-y-4">
                     <p className="text-sm text-muted-foreground">
-                        Prices increase after launch. Lock in founding member rates forever.
+                        ⚠️ Prices increase after launch. Lock in founding member rates forever.
                     </p>
                     <h3 className="text-2xl font-medium tracking-tighter text-foreground pt-4">
                         Ready to Protect Your Art?
                     </h3>
                     <p className="text-muted-foreground max-w-2xl mx-auto">
-                        Join the waitlist and be among the first to authenticate your artwork with blockchain technology.
+                        Join the waitlist and be among the first to authenticate your artwork with blockchain technology. Only <span className="text-primary font-semibold">{spotsRemaining.toLocaleString()} spots</span> left!
                     </p>
-                    <div className="text-muted-foreground">
+                    <Button 
+                        onClick={handleJoinWaitlist}
+                        className="mt-4 bg-primary text-primary-foreground hover:bg-primary/90 shadow-lg hover:shadow-xl px-8 h-12"
+                    >
+                        Join Waitlist Now - Secure Your Spot
+                    </Button>
+                    <div className="text-muted-foreground pt-4">
                         Have questions? <a href="mailto:hello@aetherlabs.com" className="text-primary hover:underline">Email us at hello@aetherlabs.com</a>
                     </div>
                 </div>

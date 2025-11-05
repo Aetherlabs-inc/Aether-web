@@ -18,6 +18,9 @@ const config = {
 			}
 		},
 		extend: {
+			fontFamily: {
+				inter: ['Inter', 'sans-serif'],
+			},
 			colors: {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
@@ -57,6 +60,9 @@ const config = {
 				'paynes-gray': 'hsl(216, 9%, 43%)',
 				gunmetal: 'hsl(211, 35%, 16%)',
 				'french-gray': 'hsl(212, 16%, 82%)',
+				'cosmic-purple': 'hsl(270, 70%, 60%)',
+				'cosmic-indigo': 'hsl(260, 70%, 55%)',
+				'cosmic-navy': 'hsl(240, 50%, 40%)',
 				chart: {
 					'1': 'hsl(var(--chart-1))',
 					'2': 'hsl(var(--chart-2))',

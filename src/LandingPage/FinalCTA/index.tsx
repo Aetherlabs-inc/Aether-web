@@ -1,6 +1,18 @@
+'use client'
+
 import Image from "next/image";
 import React from "react";
+import { useRouter } from 'next/navigation';
+import { Button } from '@/components/ui/button';
+
 export default function FinalCTA() {
+    const router = useRouter();
+    const waitlistCount = 1247;
+    const spotsRemaining = 5000 - waitlistCount;
+    
+    const handleJoinWaitlist = () => {
+        router.push('/waitlist');
+    };
     return (
         <div className="">
             <div className="mx-auto max-w-7xl py-24 sm:px-6 sm:py-32 lg:px-8">
@@ -19,25 +31,28 @@ export default function FinalCTA() {
                         </defs>
                     </svg>
                     <div className="mx-auto max-w-md text-center lg:mx-0 lg:flex-auto lg:py-32 lg:text-left">
+                        <div className="inline-flex items-center gap-2 px-3 py-1 text-xs font-medium rounded-full bg-white/10 border border-white/20 mb-4">
+                            <span className="flex h-2 w-2 rounded-full bg-white animate-pulse"></span>
+                            Only {spotsRemaining.toLocaleString()} spots remaining
+                        </div>
                         <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
                             Ready to protect your art?
                             <br />
                             Start securing your creative legacy today.
                         </h2>
                         <p className="mt-6 text-lg leading-8 text-gray-300">
-                            Use our platform to authenticate and protect your artwork using advanced blockchain and NFC technology.
-                            Join the artists, galleries, and collectors who trust us for their art&apos;s authenticity.
+                            Join <span className="font-semibold text-white">{waitlistCount.toLocaleString()}+ artists</span> who are securing their artwork with blockchain authentication. Lock in founding member pricing and get early access before we launch.
                         </p>
-                        <div className="mt-10 flex items-center justify-center gap-x-6 lg:justify-start">
-                            <a
-                                href="#"
-                                className="rounded-md bg-white px-3.5 py-2.5 text-sm font-semibold text-gray-900 shadow-sm hover:bg-gray-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+                        <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-x-6 gap-y-4 lg:justify-start">
+                            <Button
+                                onClick={handleJoinWaitlist}
+                                className="bg-white text-gray-900 hover:bg-gray-100 shadow-lg hover:shadow-xl px-6 py-3 text-base font-semibold"
                             >
-                                Get started
-                            </a>
-                            <a href="#" className="text-sm font-semibold leading-6 text-white">
-                                Learn more <span aria-hidden="true">→</span>
-                            </a>
+                                Join Waitlist - Secure Your Spot
+                            </Button>
+                            <div className="text-sm text-white/80">
+                                🔒 Founding member pricing • ⏰ Early access • 🎁 Limited to 5,000 spots
+                            </div>
                         </div>
                     </div>
                     <div className="relative mt-16 h-80 lg:mt-8">
