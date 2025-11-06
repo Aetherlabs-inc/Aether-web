@@ -170,6 +170,29 @@ export interface Database {
                     created_at?: string
                 }
             }
+            survey_responses: {
+                Row: {
+                    id: string
+                    email: string | null
+                    responses: Record<string, any>
+                    created_at: string
+                    updated_at: string
+                }
+                Insert: {
+                    id?: string
+                    email?: string | null
+                    responses: Record<string, any>
+                    created_at?: string
+                    updated_at?: string
+                }
+                Update: {
+                    id?: string
+                    email?: string | null
+                    responses?: Record<string, any>
+                    created_at?: string
+                    updated_at?: string
+                }
+            }
         }
     }
 }
@@ -179,6 +202,7 @@ export type Artwork = Database['public']['Tables']['artworks']['Row']
 export type Certificate = Database['public']['Tables']['certificates']['Row']
 export type NFCTag = Database['public']['Tables']['nfc_tags']['Row']
 export type VerificationLevel = Database['public']['Tables']['verification_levels']['Row']
+export type SurveyResponse = Database['public']['Tables']['survey_responses']['Row']
 
 export type ArtworkWithDetails = Artwork & {
     certificates?: Certificate[]
