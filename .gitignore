@@ -34,3 +34,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# AWS Amplify - contains sensitive API keys and configuration
+amplify.yml
+amplify_outputs.json
