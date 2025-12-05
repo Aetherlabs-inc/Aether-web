@@ -31,6 +31,28 @@ export class ArtworkService {
         return artworks || []
     }
 
+    // Get public artworks for a specific user (no authentication required)
+    static async getPublicArtworks(userId: string): Promise<ArtworkWithDetails[]> {
+        const { data: artworks, error } = await supabase
+            .from('artworks')
+            .select(`
+                *,
+                certificates (*),
+                nfc_tags (*),
+                verification_levels (*)
+            `)
+            .eq('user_id', userId)
+            .in('status', ['verified', 'authenticated', 'pending_verification'])
+            .order('created_at', { ascending: false })
+
+        if (error) {
+            console.error('Error fetching public artworks:', error);
+            throw new Error(`Failed to fetch public artworks: ${error.message}`)
+        }
+
+        return artworks || []
+    }
+
     // Get a single artwork by ID
     static async getArtwork(id: string): Promise<ArtworkWithDetails | null> {
         const { data: { user } } = await supabase.auth.getUser()

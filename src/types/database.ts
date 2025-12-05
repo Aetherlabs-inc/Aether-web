@@ -6,12 +6,16 @@ export interface Database {
                     id: string
                     email: string
                     full_name: string | null
+                    username: string | null
+                    slug: string | null
                     avatar_url: string | null
                     user_type: 'artist' | 'gallery' | 'collector'
                     bio: string | null
                     website: string | null
                     location: string | null
                     phone: string | null
+                    instagram: string | null
+                    profile_visibility: 'public' | 'private' | null
                     created_at: string
                     updated_at: string
                 }
@@ -19,12 +23,16 @@ export interface Database {
                     id: string
                     email: string
                     full_name?: string | null
+                    username?: string | null
+                    slug?: string | null
                     avatar_url?: string | null
                     user_type?: 'artist' | 'gallery' | 'collector'
                     bio?: string | null
                     website?: string | null
                     location?: string | null
                     phone?: string | null
+                    instagram?: string | null
+                    profile_visibility?: 'public' | 'private' | null
                     created_at?: string
                     updated_at?: string
                 }
@@ -32,12 +40,16 @@ export interface Database {
                     id?: string
                     email?: string
                     full_name?: string | null
+                    username?: string | null
+                    slug?: string | null
                     avatar_url?: string | null
                     user_type?: 'artist' | 'gallery' | 'collector'
                     bio?: string | null
                     website?: string | null
                     location?: string | null
                     phone?: string | null
+                    instagram?: string | null
+                    profile_visibility?: 'public' | 'private' | null
                     created_at?: string
                     updated_at?: string
                 }

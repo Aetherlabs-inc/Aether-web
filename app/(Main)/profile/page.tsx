@@ -9,7 +9,7 @@ import { Label } from '@/components/ui/label';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Badge } from '@/components/ui/badge';
-import { User, Camera, Save, Loader2 } from 'lucide-react';
+import { User, Camera, Save, Loader2, Share2 } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 
 export default function ProfilePage() {
@@ -66,6 +66,7 @@ export default function ProfilePage() {
 
         setSaving(true);
         try {
+            // Service handles all username validation and availability checks
             await userProfileService.upsertUserProfile(profile);
 
             toast({
@@ -74,9 +75,10 @@ export default function ProfilePage() {
             });
         } catch (error) {
             console.error('Error saving profile:', error);
+            const errorMessage = error instanceof Error ? error.message : 'Failed to save profile';
             toast({
                 title: "Error",
-                description: "Failed to save profile",
+                description: errorMessage,
                 variant: "destructive",
             });
         } finally {
@@ -138,12 +140,50 @@ export default function ProfilePage() {
         );
     }
 
+    const handleShareProfile = async () => {
+        // Always use username for share links (cleaner URLs)
+        if (!profile.username) {
+            toast({
+                title: "Username Required",
+                description: "Please set a username to share your profile link",
+                variant: "destructive",
+            });
+            return;
+        }
+
+        const profileUrl = `${window.location.origin}/a/${profile.username}`;
+        try {
+            await navigator.clipboard.writeText(profileUrl);
+            toast({
+                title: "Link copied!",
+                description: "Your profile link has been copied to clipboard",
+            });
+        } catch (err) {
+            console.error('Failed to copy:', err);
+            toast({
+                title: "Error",
+                description: "Failed to copy link",
+                variant: "destructive",
+            });
+        }
+    };
+
     return (
         <div className="container mx-auto py-8 px-4 max-w-4xl">
             <div className="space-y-6">
-                <div>
-                    <h1 className="text-3xl font-bold">Profile Settings</h1>
-                    <p className="text-muted-foreground">Manage your account settings and profile information</p>
+                <div className="flex items-center justify-between">
+                    <div>
+                        <h1 className="text-3xl font-bold">Profile Settings</h1>
+                        <p className="text-muted-foreground">Manage your account settings and profile information</p>
+                    </div>
+                    <Button
+                        variant="outline"
+                        onClick={handleShareProfile}
+                        className="gap-2"
+                    >
+                        <Share2 className="h-4 w-4" />
+                        Share Profile
+                    </Button>
                 </div>
 
                 <div className="grid gap-6">
@@ -218,6 +258,34 @@ export default function ProfilePage() {
                                     <p className="text-sm text-muted-foreground">
                                         Email cannot be changed
                                     </p>
+                                </div>
+                            </div>
+
+                            <div className="space-y-2">
+                                <Label htmlFor="username">Username</Label>
+                                <div className="flex gap-2">
+                                    <div className="flex-1">
+                                        <Input
+                                            id="username"
+                                            value={profile.username || ''}
+                                            onChange={(e) => {
+                                                const value = e.target.value.toLowerCase().replace(/[^a-z0-9_-]/g, '');
+                                                handleInputChange('username', value);
+                                            }}
+                                            placeholder="your-username"
+                                            maxLength={30}
+                                        />
+                                        <p className="text-sm text-muted-foreground mt-1">
+                                            {profile.username ? (
+                                                <>Your profile URL: <span className="font-mono text-foreground">{typeof window !== 'undefined' && `${window.location.origin}/a/${profile.username}`}</span></>
+                                            ) : (
+                                                <span className="text-muted-foreground">Set a username to get a custom profile URL</span>
+                                            )}
+                                        </p>
+                                        <p className="text-xs text-muted-foreground mt-1">
+                                            3-30 characters, letters, numbers, underscores, and hyphens only
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
 
