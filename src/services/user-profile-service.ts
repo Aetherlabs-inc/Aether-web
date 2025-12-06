@@ -297,6 +297,7 @@ export class UserProfileService {
                 email,
                 full_name: metadata?.full_name || null,
                 username: null,
+                slug: null,
                 avatar_url: metadata?.avatar_url || null,
                 user_type: 'artist',
                 bio: null,
